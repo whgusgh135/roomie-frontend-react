@@ -1,0 +1,8 @@
+.sidebar {
+    background-color: $color-grey-dark;
+    grid-column: sidebar-start / sidebar-end;
+
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}

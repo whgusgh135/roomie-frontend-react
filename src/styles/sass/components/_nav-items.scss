@@ -1,0 +1,38 @@
+.nav-items {
+    
+    &__logo {
+        height: 4.5rem;
+        width: 4.5rem;
+        margin-left: 2rem;
+    }
+
+    &__search-bar {
+        border: none;
+        border-radius: 50px;
+        height: 2.5rem;
+        background-color: $color-grey-light;
+        padding: 0 2rem 0 2rem;
+    }
+
+    &__profile {
+        text-decoration: none;
+        color: $color-grey-dark;
+        display: flex;
+        align-items: center;
+        padding-left: 2rem;
+        
+        &--img {
+            height: 4.5rem;
+            width: 4.5rem;
+            border-radius: 50px;
+        }
+
+        &--name {
+            padding: 2rem;
+        }
+
+        &:hover {
+            background-color: $color-grey-light;
+        }
+    }
+}

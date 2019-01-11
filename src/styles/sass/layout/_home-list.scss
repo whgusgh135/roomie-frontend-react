@@ -1,0 +1,20 @@
+.home-list {
+    grid-column: center-start / center-end;
+
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 2rem 3rem;
+
+    &__title {
+        margin-top: 4rem;
+        color: $color-grey;
+        font-size: 1.6rem;
+    }
+
+    &__link {
+        margin-top: 4rem;
+        color: $color-primary-dark;
+        font-size: 1.6rem;
+    }
+}

@@ -1,0 +1,35 @@
+.side-items {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    margin-top: 3rem;
+
+    &__profile-info {
+        color: $color-grey-light;
+        font-size: 2rem;
+    }
+
+    &__profile-img {
+        width: 8rem;
+        height: 8rem;
+        border-radius: 50px;
+        margin: 2rem auto;
+    }
+
+    &__item {
+        list-style: none;
+        font-size: 1.6rem;
+        padding: 2rem 0 2rem 0;
+
+       &:hover {
+           background: $color-primary;
+       }
+    }
+
+    &__link {
+        text-decoration: none;
+        text-transform: uppercase;
+        color: $color-grey-light;
+    }
+    
+}
