@@ -7,6 +7,22 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-align: center;
+
+    @include respond(tab-land) {
+        width: 32%;
+    }
+    @include respond(tab-port) {
+        padding: 1rem;
+        width: 33%;
+    }
+    @include respond(phone) {
+        width: 70%;
+        margin-bottom: .5rem;
+    }
+    @include respond(mini) {
+        width: 95%;
+    }
 
     &__img {
         width: 7rem;

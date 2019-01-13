@@ -23,7 +23,7 @@ export class Home extends React.Component {
 
     renderFlatBox() {
         // replace this with api call to get flat data
-        const flats = [{"id": "1"}, {"id": "2"}, {"id": "3"}];
+        const flats = [{"id": "1"}, {"id": "2"}, {"id": "3"}, {"id": "4"}, {"id": "5"}, {"id": "6"}];
 
         return (
             flats.map(flat => {
@@ -47,9 +47,6 @@ export class Home extends React.Component {
 
                 <div class="home-list">
                     <h3 class="home-list__title">Browse flats</h3>
-                </div>
-                <div class="home-list">
-                    {this.renderFlatBox()}
                 </div>
                 <div class="home-list">
                     {this.renderFlatBox()}

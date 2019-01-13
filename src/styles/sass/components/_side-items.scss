@@ -7,6 +7,13 @@
     &__profile-info {
         color: $color-grey-light;
         font-size: 2rem;
+
+        @include respond(tab-port) {
+            font-size: 1.6rem;
+        }
+        @include respond(phone) {
+            font-size: 1.2rem;
+        }
     }
 
     &__profile-img {
@@ -14,6 +21,15 @@
         height: 8rem;
         border-radius: 50px;
         margin: 2rem auto;
+
+        @include respond(tab-port) {
+            width: 6rem;
+            height: 6rem;
+        }
+        @include respond(phone) {
+            width: 4rem;
+            height: 4rem;
+        }
     }
 
     &__item {
@@ -24,6 +40,14 @@
        &:hover {
            background: $color-primary;
        }
+
+       @include respond(tab-port) {
+            font-size: 1.2rem;
+            padding: 1.6rem 0 1.6rem 0;
+        }
+        @include respond(phone) {
+            font-size: 1rem;
+        }
     }
 
     &__link {

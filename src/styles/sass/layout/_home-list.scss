@@ -4,17 +4,32 @@
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+    align-items: center;
     margin: 2rem 3rem;
+
+    @include respond(tab-land) {
+        margin: .6rem 1rem;
+    }
+    @include respond(phone) {
+        flex-direction: column;
+    }
 
     &__title {
         margin-top: 4rem;
         color: $color-grey;
         font-size: 1.6rem;
+        text-align: center;
+        @include respond(tab-land) {
+            margin-top: 3rem;
+        }
     }
 
     &__link {
         margin-top: 4rem;
         color: $color-primary-dark;
         font-size: 1.6rem;
+        @include respond(tab-land) {
+            margin-top: 3rem;
+        }
     }
 }
