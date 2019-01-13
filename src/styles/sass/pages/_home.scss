@@ -1,12 +1,22 @@
 .home {
     background-color: $color-grey-light;
-    grid-column: full-start / full-end;
-
+    padding-top: 6rem;
+    margin-left: 25rem;
 
     display: grid;
     grid-template-columns:  
-        [left-space] minmax(4rem, 1fr)
-        [center-start] 100rem
-        [center-end] minmax(4rem, 1fr)
+        [left-space] minmax(1rem, 1fr)
+        [center-start] minmax(10rem, 100rem)
+        [center-end] minmax(1rem, 1fr)
         [right-space];
+
+    @include respond(tab-land) {
+        margin-left: 20rem;
+    }
+    @include respond(tab-port) {
+        margin-left: 15rem;
+    }
+    @include respond(phone) {
+        margin-left: 10rem;
+    }
 }
