@@ -1,6 +1,38 @@
 import React from 'react';
+import { RoomieBox } from '../Roomie/RoomieBox';
+import { FlatBox } from '../Flat/FlatBox';
 
 export class Home extends React.Component {
+
+    renderRoomieBox() {
+        // replace this with api call (state) to get data
+        const roomies = [
+            {"name": "Ellie-May Finch", "address": "Auckland CBD", "id": "1"},
+            {"name": "Isaiah Rodriguez", "address": "Wellington", "id": "2"},
+            {"name": "Shannon Rodgers", "address": "North Shore", "id": "3"}
+        ];
+
+        return (
+            roomies.map(roomie => {
+                return (
+                    <RoomieBox roomie={roomie}/>
+                )
+            })
+        )
+    }
+
+    renderFlatBox() {
+        // replace this with api call to get flat data
+        const flats = [{"id": "1"}, {"id": "2"}, {"id": "3"}];
+
+        return (
+            flats.map(flat => {
+                return (
+                    <FlatBox flat={flat} />
+                )
+            })
+        )
+    }
 
     render() {
         return (
@@ -10,50 +42,17 @@ export class Home extends React.Component {
                     <a href="#" class="home-list__link">Find out more</a>
                 </div>
                 <div class="home-list">
-                    <a href="#" class="roomie-box">
-                        <img src="img/person-1.jpg" alt="person" class="roomie-box__img" />
-                        <p class="roomie-box__name">Ellie-May Finch</p>
-                        <p class="roomie-box__address">Auckland CBD</p>
-                        <button class="button--primary">More</button>
-                    </a>
-                    <a href="#" class="roomie-box">
-                        <img src="img/person-2.jpg" alt="person" class="roomie-box__img" />
-                        <p class="roomie-box__name">Isaiah Rodriguez</p>
-                        <p class="roomie-box__address">Wellington</p>
-                        <button class="button--primary">More</button>
-                    </a>
-                    <a href="#" class="roomie-box">
-                        <img src="img/person-3.jpg" alt="person" class="roomie-box__img" />
-                        <p class="roomie-box__name">Shannon Rodgers</p>
-                        <p class="roomie-box__address">North Shore</p>
-                        <button class="button--primary">More</button>
-                    </a>
+                    {this.renderRoomieBox()}
                 </div>
 
                 <div class="home-list">
                     <h3 class="home-list__title">Browse flats</h3>
                 </div>
                 <div class="home-list">
-                    <a href="#" class="flat-box">
-                        <img src="img/flat-1.jpg" alt="flat" class="flat-box__img" />
-                    </a>
-                    <a href="#" class="flat-box">
-                        <img src="img/flat-2.jpg" alt="flat" class="flat-box__img" />
-                    </a>
-                    <a href="#" class="flat-box">
-                        <img src="img/flat-3.jpg" alt="flat" class="flat-box__img" />
-                    </a>
+                    {this.renderFlatBox()}
                 </div>
                 <div class="home-list">
-                    <a href="#" class="flat-box">
-                        <img src="img/flat-4.jpg" alt="flat" class="flat-box__img" />
-                    </a>
-                    <a href="#" class="flat-box">
-                        <img src="img/flat-5.jpg" alt="flat" class="flat-box__img" />
-                    </a>
-                    <a href="#" class="flat-box">
-                        <img src="img/flat-6.jpg" alt="flat" class="flat-box__img" />
-                    </a>
+                    {this.renderFlatBox()}
                 </div>
             </main>
         )
