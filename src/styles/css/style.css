@@ -238,3 +238,10 @@ button {
   @media only screen and (max-width: 43.75em) {
     .home {
       margin-left: 10rem; } }
+
+.auth {
+  background-color: #F5F5F5;
+  padding-top: 6rem;
+  margin-left: 25rem;
+  display: flex;
+  flex-direction: column; }
