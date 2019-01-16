@@ -4,13 +4,20 @@ import { Provider } from 'react-redux';
 import { configureStore } from './redux/reducer';
 
 import { Home } from './components/Home/Home';
-import { Navbar } from './components/Navbar/Navbar';
+import Navbar from './components/Navbar/Navbar';
 import { Sidebar } from './components/Sidebar/Sidebar';
-import { LoginForm } from './components/Auth/LoginForm';
+import LoginForm from './components/Auth/LoginForm';
+
+import * as actions from './redux/actions/auth';
 
 const store = configureStore();
 
 class App extends Component {
+
+  componentWillMount() {
+    store.dispatch(actions.checkAuthState());
+  }
+
   render() {
     return (
       <Provider store={store}>
