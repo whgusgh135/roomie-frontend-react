@@ -1,9 +1,9 @@
 import React from 'react';
-import * as actions from '../../redux/actions/auth';
 import { connect } from 'react-redux';
+import * as actions from '../../redux/actions/auth';
 import { setError } from '../../redux/actions/error';
 
-class LoginForm extends React.Component {
+class NavbarLogin extends React.Component {
     constructor() {
         super();
         this.state = {
@@ -23,19 +23,14 @@ class LoginForm extends React.Component {
 
     handleSubmit = event => {
         event.preventDefault();
-        if(this.state.password === this.state.passwordConfirm){
-            this.loginUser(this.state);
-        } else {
-            this.props.dispatch(setError("Password not same"));
-        }
-        
+        this.loginUser(this.state);    
     }
 
     render() {
-        const { id, password, passwordConfirm } = this.state;
-
+        const { id, password } = this.state;
+    
         return (
-            <div class="auth">
+            <div>
                 <form onSubmit={this.handleSubmit} class="auth_form">
                     <label>ID: </label>
                     <input 
@@ -53,16 +48,8 @@ class LoginForm extends React.Component {
                         onChange={this.handleChange}
                         required
                     />
-                    <label>Password Confirmation: </label>
-                    <input 
-                        type="password"
-                        name="passwordConfirm"
-                        value={passwordConfirm}
-                        onChange={this.handleChange}
-                        required
-                    />
                 <button class="button--primary" type="submit">Submit</button>
-
+    
                 </form>
             </div>
         )
@@ -75,4 +62,4 @@ function mapStateToProps(state) {
     }
 }
 
-export default connect(mapStateToProps)(LoginForm);
+export default connect(mapStateToProps)(NavbarLogin);
