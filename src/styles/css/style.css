@@ -140,6 +140,14 @@ button {
   border-radius: .7rem;
   margin: 1.5rem; }
 
+.button--login {
+  background-color: #C2185B;
+  color: #F5F5F5;
+  font-size: 1.2rem;
+  padding: .2rem .4rem;
+  border-radius: .3rem;
+  margin: 1.5rem; }
+
 .flat-box {
   width: 30%;
   height: 25rem;
@@ -164,6 +172,10 @@ button {
   @media only screen and (max-width: 31.25em) {
     .flat-box {
       width: 95%; } }
+
+.input--login {
+  width: 12rem;
+  margin: .2rem; }
 
 .navbar {
   background-color: white;

@@ -3,7 +3,7 @@ import * as actions from '../../redux/actions/auth';
 import { connect } from 'react-redux';
 import { setError } from '../../redux/actions/error';
 
-class LoginForm extends React.Component {
+class Auth extends React.Component {
     constructor() {
         super();
         this.state = {
@@ -75,4 +75,4 @@ function mapStateToProps(state) {
     }
 }
 
-export default connect(mapStateToProps)(LoginForm);
+export default connect(mapStateToProps)(Auth);

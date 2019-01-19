@@ -6,7 +6,7 @@ import { configureStore } from './redux/reducer';
 import { Home } from './components/Home/Home';
 import Navbar from './components/Navbar/Navbar';
 import { Sidebar } from './components/Sidebar/Sidebar';
-import LoginForm from './components/Auth/LoginForm';
+import Auth from './components/Auth/Auth';
 
 import * as actions from './redux/actions/auth';
 
@@ -28,7 +28,7 @@ class App extends Component {
               <Sidebar />
 
               <Route exact path="/" component={Home} />
-              <Route exact path="/auth" component={LoginForm} />
+              <Route exact path="/auth" component={Auth} />
           </div>
         </BrowserRouter>
       </Provider>

@@ -43,6 +43,8 @@ export const checkAuthState = () => {
                 if(validTime > currentTime) {
                     dispatch(setCurrentUser({
                         userId: decodedToken.userId,
+                        firstName: decodedToken.firstName,
+                        lastName: decodedToken.lastName,
                         roomie: decodedToken.roomie
                     }));
                 }
