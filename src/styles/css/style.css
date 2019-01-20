@@ -48,7 +48,8 @@ button {
   .nav-items__profile--img {
     height: 4.5rem;
     width: 4.5rem;
-    border-radius: 50px; }
+    border-radius: 50px;
+    border: 1px #F5F5F5 solid; }
   .nav-items__profile--name {
     padding: 2rem; }
   .nav-items__profile:hover {
