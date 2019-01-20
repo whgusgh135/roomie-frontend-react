@@ -15,7 +15,7 @@ class Navbar extends React.Component {
                 </form>
                 
                 {this.props.auth.isAuthenticated ? (
-                    <NavbarProfile auth={this.props.auth}/>
+                    <NavbarProfile auth={this.props.auth} />
                 ) : (
                     <NavbarLogin />
                 )}
