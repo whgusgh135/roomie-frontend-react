@@ -3,14 +3,22 @@ import React from 'react';
 // replace this image with state
 import profileImage from '../../styles/img/profile.jpg';
 
-export const SidebarProfile = props => {
+export class SidebarProfile extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            profileImage: "/api/profileimage/" + this.props.auth.user.roomie.profileImage
+        }
+    }
     // replace this value with state
-    const userName = "Kevin Cho";
 
-    return (
-        <div>
-            <p class="side-items side-items__profile-info">{userName}</p>
-            <img src={profileImage} alt="profile" class="side-items side-items__profile-img" />
-        </div>
-    )
+    render() {
+        return (
+            <div>
+                <p className="side-items side-items__profile-info">{this.props.auth.user.firstName} {this.props.auth.user.lastName}</p>
+                <img src={this.state.profileImage} alt="profile" className="side-items side-items__profile-img" />
+            </div>
+        )
+    }
 }
+   

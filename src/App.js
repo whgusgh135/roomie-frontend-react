@@ -5,7 +5,7 @@ import { configureStore } from './redux/reducer';
 
 import { Home } from './components/Home/Home';
 import Navbar from './components/Navbar/Navbar';
-import { Sidebar } from './components/Sidebar/Sidebar';
+import Sidebar from './components/Sidebar/Sidebar';
 import Auth from './components/Auth/Auth';
 
 import * as actions from './redux/actions/auth';
@@ -22,7 +22,7 @@ class App extends Component {
     return (
       <Provider store={store}>
         <BrowserRouter>
-          <div class="container">
+          <div className="container">
               <Navbar />
               
               <Sidebar />
