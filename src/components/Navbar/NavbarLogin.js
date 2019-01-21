@@ -13,7 +13,7 @@ class NavbarLogin extends React.Component {
         }
     }
 
-    loginUser(userData) {
+    loginUser = userData => {
         this.props.dispatch(actions.authUser(userData));
     }
 
@@ -31,10 +31,10 @@ class NavbarLogin extends React.Component {
     
         return (
             <div>
-                <form onSubmit={this.handleSubmit} class="auth_form">
+                <form onSubmit={this.handleSubmit} className="auth_form">
                     <label>ID: </label>
                     <input 
-                        class="input--login"
+                        className="input--login"
                         type="text"
                         name="id"
                         value={id}
@@ -43,14 +43,14 @@ class NavbarLogin extends React.Component {
                     />
                     <label>Password: </label>
                     <input 
-                        class="input--login"
+                        className="input--login"
                         type="password"
                         name="password"
                         value={password}
                         onChange={this.handleChange}
                         required
                     />
-                <button class="button--login" type="submit">Login</button>
+                <button className="button--login" type="submit">Login</button>
     
                 </form>
             </div>

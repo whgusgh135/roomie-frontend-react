@@ -9,8 +9,8 @@ export class FlatBox extends React.Component {
 
     render() {
         return(
-            <a href="#" class="flat-box">
-                <img src={flatImage} alt="flat" class="flat-box__img" />
+            <a href="#" className="flat-box">
+                <img src={flatImage} alt="flat" className="flat-box__img" />
             </a>
         )
     }

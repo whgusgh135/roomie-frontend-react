@@ -16,9 +16,9 @@ export class NavbarProfile extends React.Component {
     
     render() {
         return (
-            <a href="#" class="nav-items__profile">
-                <img src={this.state.profileImage} alt="profile" class="nav-items__profile--img" />
-                <p class="nav-items__profile--name">{this.props.auth.user.firstName} {this.props.auth.user.lastName}</p>
+            <a href="#" className="nav-items__profile">
+                <img src={this.state.profileImage} alt="profile" className="nav-items__profile--img" />
+                <p className="nav-items__profile--name">{this.props.auth.user.firstName} {this.props.auth.user.lastName}</p>
             </a>
         )
     }

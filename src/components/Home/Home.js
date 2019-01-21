@@ -36,19 +36,19 @@ export class Home extends React.Component {
 
     render() {
         return (
-            <main class="home">
-                <div class="home-list">
-                    <h3 class="home-list__title">Your potential roommates</h3>
-                    <a href="#" class="home-list__link">Find out more</a>
+            <main className="home">
+                <div className="home-list">
+                    <h3 className="home-list__title">Your potential roommates</h3>
+                    <a href="#" className="home-list__link">Find out more</a>
                 </div>
-                <div class="home-list">
+                <div className="home-list">
                     {this.renderRoomieBox()}
                 </div>
 
-                <div class="home-list">
-                    <h3 class="home-list__title">Browse flats</h3>
+                <div className="home-list">
+                    <h3 className="home-list__title">Browse flats</h3>
                 </div>
-                <div class="home-list">
+                <div className="home-list">
                     {this.renderFlatBox()}
                 </div>
             </main>

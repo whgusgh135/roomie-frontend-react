@@ -31,6 +31,13 @@ export const authUser = userData => {
     }
 }
 
+export const logout = () => {
+    return dispatch => {
+        sessionStorage.removeItem("jwtToken");
+        dispatch(setCurrentUser({}));
+    }
+}
+
 export const checkAuthState = () => {
     return dispatch => {
         return new Promise((resolve, reject) => {
