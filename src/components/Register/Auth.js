@@ -10,11 +10,13 @@ class Auth extends React.Component {
             id: "",
             password: "",
             passwordConfirm: "",
+            firstName: "",
+            lastName: ""
         }
     }
 
     loginUser(userData) {
-        this.props.dispatch(actions.authUser(userData));
+        this.props.dispatch(actions.registerUser(userData));
     }
 
     handleChange = event => {
@@ -32,7 +34,7 @@ class Auth extends React.Component {
     }
 
     render() {
-        const { id, password, passwordConfirm } = this.state;
+        const { id, password, passwordConfirm, firstName, lastName } = this.state;
 
         return (
             <div class="auth">
@@ -58,6 +60,22 @@ class Auth extends React.Component {
                         type="password"
                         name="passwordConfirm"
                         value={passwordConfirm}
+                        onChange={this.handleChange}
+                        required
+                    />
+                    <label>First Name: </label>
+                    <input 
+                        type="text"
+                        name="firstName"
+                        value={firstName}
+                        onChange={this.handleChange}
+                        required
+                    />
+                    <label>Last Name: </label>
+                    <input 
+                        type="text"
+                        name="lastName"
+                        value={lastName}
                         onChange={this.handleChange}
                         required
                     />
