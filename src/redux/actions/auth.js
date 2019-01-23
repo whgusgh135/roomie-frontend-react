@@ -38,6 +38,25 @@ export const logout = () => {
     }
 }
 
+export const registerUser = userData => {
+    return dispatch => {
+        return new Promise((resolve, reject) => {
+            return axios.post("/api/user/register", {...userData})
+                .then(res => res.data)
+                .then(({token, ...user}) => {
+                    sessionStorage.setItem("jwtToken", token);
+                    dispatch(setCurrentUser(user));
+                    dispatch(setError(null));
+                    resolve();
+                })
+                .catch(error => {
+                    dispatch(setError(error.response.data.error));
+                    reject();
+                })
+        })
+    }
+}
+
 export const checkAuthState = () => {
     return dispatch => {
         return new Promise((resolve, reject) => {

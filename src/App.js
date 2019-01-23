@@ -6,7 +6,7 @@ import { configureStore } from './redux/reducer';
 import { Home } from './components/Home/Home';
 import Navbar from './components/Navbar/Navbar';
 import Sidebar from './components/Sidebar/Sidebar';
-import Auth from './components/Auth/Auth';
+import Auth from './components/Register/Auth';
 
 import * as actions from './redux/actions/auth';
 
