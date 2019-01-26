@@ -30,7 +30,6 @@ class Auth extends React.Component {
         } else {
             this.props.dispatch(setError("Password not same"));
         }
-        
     }
 
     render() {

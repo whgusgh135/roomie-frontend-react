@@ -7,6 +7,7 @@ import { Home } from './components/Home/Home';
 import Navbar from './components/Navbar/Navbar';
 import Sidebar from './components/Sidebar/Sidebar';
 import Auth from './components/Register/Auth';
+import RoomieRegister from './components/Register/RoomieRegister';
 
 import * as actions from './redux/actions/auth';
 
@@ -29,6 +30,7 @@ class App extends Component {
 
               <Route exact path="/" component={Home} />
               <Route exact path="/auth" component={Auth} />
+              <Route exact path="/roomieregister" component={RoomieRegister} />
           </div>
         </BrowserRouter>
       </Provider>
