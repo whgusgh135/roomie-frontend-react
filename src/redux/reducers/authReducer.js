@@ -15,7 +15,12 @@ export const authReducer = (state = INITIAL_STATE, action) => {
         case SET_ROOMIE:
             return {
                 ...state,
-                user: action.user
+                user: {
+                    userId: state.user.userId,
+                    firstName: state.user.firstName,
+                    lastName: state.user.lastName,
+                    roomie: action.roomie
+                }
             }
         default:
             return state;
