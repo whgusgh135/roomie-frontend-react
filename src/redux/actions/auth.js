@@ -40,17 +40,21 @@ export const authUser = userData => {
     }
 }
 
-const setRoomie = user => {
+const setRoomie = roomie => {
     return {
         type: SET_ROOMIE,
-        user: user
+        roomie: roomie
+
     }
 }
 
 export const createRoomie = userData => {
     return dispatch => {
         return new Promise((resolve, reject) => {
-            return axios.post("/api/roomie", {...userData})
+            const config = {     
+                headers: { 'content-type': 'multipart/form-data' }
+            }
+            return axios.post("/api/roomie", userData, config)
                 .then(res => res.data)
                 .then(({...roomie}) => {
                     dispatch(setRoomie(roomie));

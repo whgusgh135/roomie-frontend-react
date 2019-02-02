@@ -26,14 +26,14 @@ class RoomieRegister extends React.Component {
         formData.append('profileImage', this.state.profileImage, this.state.profileImage.name);
         formData.append('phoneNumber', this.state.phoneNumber);
         formData.append('region', this.state.region);
-        console.log(formData);
+        formData.append('minBudget', this.state.minBudget);
+        formData.append('maxBudget', this.state.maxBudget);
+
         this.props.dispatch(actions.createRoomie(formData));
     }
 
     setFile = event => {
         this.setState({profileImage: event.target.files[0]});
-        console.log(event.target.files[0]);
-        console.log(this.state);
     }
 
     render() {
