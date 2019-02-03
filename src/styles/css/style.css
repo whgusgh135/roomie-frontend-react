@@ -178,6 +178,20 @@ button {
   width: 12rem;
   margin: .2rem; }
 
+.register-form {
+  width: 30rem;
+  margin-top: 8rem;
+  display: flex;
+  flex-direction: column; }
+  .register-form__heading {
+    font-size: 2rem;
+    margin-bottom: 4rem;
+    text-align: center; }
+  .register-form__label {
+    font-size: 1.4rem; }
+  .register-form__input {
+    margin-bottom: 1rem; }
+
 .navbar {
   background-color: white;
   display: flex;
@@ -252,9 +266,19 @@ button {
     .home {
       margin-left: 10rem; } }
 
-.auth {
+.register {
   background-color: #F5F5F5;
   padding-top: 6rem;
   margin-left: 25rem;
+  height: 100vh;
   display: flex;
-  flex-direction: column; }
+  justify-content: center; }
+  @media only screen and (max-width: 75em) {
+    .register {
+      margin-left: 20rem; } }
+  @media only screen and (max-width: 56.25em) {
+    .register {
+      margin-left: 15rem; } }
+  @media only screen and (max-width: 43.75em) {
+    .register {
+      margin-left: 10rem; } }

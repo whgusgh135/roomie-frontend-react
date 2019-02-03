@@ -1,9 +1,10 @@
 import React from 'react';
 import * as actions from '../../redux/actions/auth';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 import { setError } from '../../redux/actions/error';
 
-class Auth extends React.Component {
+class UserRegister extends React.Component {
     constructor() {
         super();
         this.state = {
@@ -35,43 +36,48 @@ class Auth extends React.Component {
     render() {
         const { id, password, passwordConfirm, firstName, lastName } = this.state;
 
+        if(this.props.auth.isAuthenticated) {
+            return <Redirect to="/" />
+        }
+
         return (
-            <div class="auth">
-                <form onSubmit={this.handleSubmit} class="auth_form">
-                    <label>ID: </label>
-                    <input 
+            <div className="register">
+                <form onSubmit={this.handleSubmit} className="register-form">
+                <h3 className="register-form__heading">User Registration</h3>
+                    <label className="register-form__label">ID: </label>
+                    <input className="register-form__input" 
                         type="text"
                         name="id"
                         value={id}
                         onChange={this.handleChange}
                         required
                     />
-                    <label>Password: </label>
-                    <input 
+                    <label className="register-form__label">Password: </label>
+                    <input className="register-form__input" 
                         type="password"
                         name="password"
                         value={password}
                         onChange={this.handleChange}
                         required
                     />
-                    <label>Password Confirmation: </label>
-                    <input 
+                    <label className="register-form__label">Password Confirmation: </label>
+                    <input className="register-form__input" 
                         type="password"
                         name="passwordConfirm"
                         value={passwordConfirm}
                         onChange={this.handleChange}
                         required
                     />
-                    <label>First Name: </label>
-                    <input 
+                    <label className="register-form__label">First Name: </label>
+                    <input className="register-form__input" 
                         type="text"
                         name="firstName"
                         value={firstName}
                         onChange={this.handleChange}
                         required
                     />
-                    <label>Last Name: </label>
-                    <input 
+                    <label className="register-form__label">Last Name: </label>
+                    <input className="register-form__input" 
                         type="text"
                         name="lastName"
                         value={lastName}
@@ -92,4 +98,4 @@ function mapStateToProps(state) {
     }
 }
 
-export default connect(mapStateToProps)(Auth);
+export default connect(mapStateToProps)(UserRegister);

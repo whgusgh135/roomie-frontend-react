@@ -40,42 +40,43 @@ class RoomieRegister extends React.Component {
         const { phoneNumber, region, minBudget, maxBudget } = this.state;
 
         return (
-            <div class="auth">
-                <form onSubmit={this.handleSubmit} class="auth_form">
-                    <label>Phone Number: </label>
-                    <input 
+            <div className="register">
+                <form onSubmit={this.handleSubmit} className="register-form">
+                    <h3 className="register-form__heading">Roomie Registration</h3>
+                    <label className="register-form__label">Phone Number: </label>
+                    <input className="register-form__input"
                         type="text"
                         name="phoneNumber"
                         value={phoneNumber}
                         onChange={this.handleChange}
                         required
                     />
-                    <label>Region: </label>
-                    <input 
+                    <label className="register-form__label">Region: </label>
+                    <input className="register-form__input" 
                         type="text"
                         name="region"
                         value={region}
                         onChange={this.handleChange}
                         required
                     />
-                    <label>Min Budget: </label>
-                    <input 
+                    <label className="register-form__label">Min Budget: </label>
+                    <input className="register-form__input" 
                         type="text"
                         name="minBudget"
                         value={minBudget}
                         onChange={this.handleChange}
                         required
                     />
-                    <label>Max Budget: </label>
-                    <input 
+                    <label className="register-form__label">Max Budget: </label>
+                    <input className="register-form__input" 
                         type="text"
                         name="maxBudget"
                         value={maxBudget}
                         onChange={this.handleChange}
                         required
                     />
-                    <label>Profile Image: </label>
-                    <input 
+                    <label className="register-form__label">Profile Image: </label>
+                    <input className="register-form__input" 
                         type="file"
                         onChange={this.setFile}
                         accept="image/png, image/jpeg"

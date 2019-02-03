@@ -1,0 +1,21 @@
+.register-form {
+    width: 30rem;
+    margin-top: 8rem;
+
+    display: flex;
+    flex-direction: column;
+
+    &__heading {
+        font-size: 2rem;
+        margin-bottom: 4rem;
+        text-align: center;
+    }
+
+    &__label {
+        font-size: 1.4rem;
+    }
+
+    &__input {
+        margin-bottom: 1rem;
+    }
+}

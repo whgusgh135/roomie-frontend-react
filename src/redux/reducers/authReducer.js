@@ -1,4 +1,4 @@
-import { SET_CURRENT_USER, SET_ROOMIE } from '../actionTypes';
+import { SET_CURRENT_USER } from '../actionTypes';
 
 const INITIAL_STATE = {
     isAuthenticated: false,
@@ -12,16 +12,6 @@ export const authReducer = (state = INITIAL_STATE, action) => {
                 isAuthenticated: !!Object.keys(action.user).length,
                 user: action.user
             };
-        case SET_ROOMIE:
-            return {
-                ...state,
-                user: {
-                    userId: state.user.userId,
-                    firstName: state.user.firstName,
-                    lastName: state.user.lastName,
-                    roomie: action.roomie
-                }
-            }
         default:
             return state;
     }
