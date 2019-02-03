@@ -2,7 +2,7 @@ import axios from 'axios';
 import * as jwt from 'jsonwebtoken';
 import * as moment from 'moment';
 
-import { SET_CURRENT_USER, SET_ROOMIE } from '../actionTypes';
+import { SET_CURRENT_USER } from '../actionTypes';
 import { setError } from './error';
 
 const setAuthorizationToken = token => {
@@ -40,14 +40,6 @@ export const authUser = userData => {
     }
 }
 
-const setRoomie = roomie => {
-    return {
-        type: SET_ROOMIE,
-        roomie: roomie
-
-    }
-}
-
 export const createRoomie = userData => {
     return dispatch => {
         return new Promise((resolve, reject) => {
@@ -56,8 +48,10 @@ export const createRoomie = userData => {
             }
             return axios.post("/api/roomie", userData, config)
                 .then(res => res.data)
-                .then(({...roomie}) => {
-                    dispatch(setRoomie(roomie));
+                .then(({token, ...user}) => {
+                    setAuthorizationToken(token);
+                    sessionStorage.setItem("jwtToken", token);
+                    dispatch(setCurrentUser(user));
                     resolve();
                 })
                 .catch(error => {

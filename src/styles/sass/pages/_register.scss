@@ -1,0 +1,19 @@
+.register {
+    background-color: $color-grey-light;
+    padding-top: 6rem;
+    margin-left: 25rem;
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+
+    @include respond(tab-land) {
+        margin-left: 20rem;
+    }
+    @include respond(tab-port) {
+        margin-left: 15rem;
+    }
+    @include respond(phone) {
+        margin-left: 10rem;
+    }
+}
