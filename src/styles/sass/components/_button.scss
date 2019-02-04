@@ -1,8 +1,15 @@
 .button {
+    background-color: $color-primary-dark;
+    color: $color-grey-light;
+    cursor: pointer;
+    &:hover {
+        background-color: $color-primary;
+    }
+    &:active {
+        background-color: $color-primary-dark;
+    }
     
     &--primary {
-        background-color: $color-primary-dark;
-        color: $color-grey-light;
         font-size: 1.8rem;
         padding: .8rem 1.2rem;
         border-radius: .7rem;
@@ -10,11 +17,13 @@
     }
 
     &--login {
-        background-color: $color-primary-dark;
-        color: $color-grey-light;
-        font-size: 1.2rem;
-        padding: .2rem .4rem;
+        font-size: 1.4rem;
+        padding: .4rem .6rem;
         border-radius: .3rem;
         margin: 1.5rem;
+
+        &:nth-of-type(1) {
+            margin-right: 0rem;
+        }
     }
 }

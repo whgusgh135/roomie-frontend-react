@@ -84,7 +84,7 @@ class UserRegister extends React.Component {
                         onChange={this.handleChange}
                         required
                     />
-                <button class="button--primary" type="submit">Submit</button>
+                <button class="button button--primary" type="submit">Submit</button>
 
                 </form>
             </div>

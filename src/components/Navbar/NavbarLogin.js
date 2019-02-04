@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import * as actions from '../../redux/actions/auth';
 import { setError } from '../../redux/actions/error';
 
@@ -50,8 +51,10 @@ class NavbarLogin extends React.Component {
                         onChange={this.handleChange}
                         required
                     />
-                <button className="button--login" type="submit">Login</button>
-    
+                <button className="button button--login" type="submit">Login</button>
+                <button className="button button--login" type="submit">
+                    <Link to="/userregister">Register</Link>
+                </button>
                 </form>
             </div>
         )

@@ -28,7 +28,7 @@ export class RoomieBox extends React.Component {
                 {this.renderImage()}
                 <p className="roomie-box__name">{this.props.roomie.name}</p>
                 <p className="roomie-box__address">{this.props.roomie.address}</p>
-                <button className="button--primary">More</button>
+                <button className="button button--primary">More</button>
             </a>
         )
     }
