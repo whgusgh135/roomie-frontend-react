@@ -1,8 +1,5 @@
 import React from 'react';
 
-// replace this image with state
-import profileImage from '../../styles/img/profile.jpg';
-
 export class SidebarProfile extends React.Component {
     constructor(props) {
         super(props);

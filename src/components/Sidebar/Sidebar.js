@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import * as actions from '../../redux/actions/auth';
 import { SidebarItem } from './SidebarItem';
 import { SidebarProfile } from './SidebarProfie';
+import { Link } from 'react-router-dom';
+import defaultProfile from '../../styles/img/avatar-default.png'
 
 class Sidebar extends React.Component {
     constructor() {
@@ -27,6 +29,13 @@ class Sidebar extends React.Component {
     renderSidebarProfile() {
         if(this.props.auth.isAuthenticated) {
             return <SidebarProfile auth={this.props.auth} />
+        } else {
+            return (
+                <Link to="/userregister">
+                    <p className="side-items side-items__profile-info">Login or Register</p>
+                    <img src={defaultProfile} alt="profile" className="side-items side-items__profile-img" />
+                </Link>
+            )
         }
     }
 
@@ -34,11 +43,11 @@ class Sidebar extends React.Component {
         if(this.props.auth.isAuthenticated) {
             return (
                 <ul className="side-items">
-                    <li className="side-items__item">
-                        <div className="side-items__link" onClick={this.logout}>
+                    <Link to="/" className="side-items__item" onClick={this.logout}>
+                        <div className="side-items__link">
                             Logout
                         </div>
-                    </li>
+                    </Link>
                 </ul>
             )
         }

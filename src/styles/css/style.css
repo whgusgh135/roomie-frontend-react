@@ -59,7 +59,8 @@ button {
   text-align: center;
   display: flex;
   flex-direction: column;
-  margin-top: 3rem; }
+  margin-top: 3rem;
+  cursor: pointer; }
   .side-items__profile-info {
     color: #F5F5F5;
     font-size: 2rem; }
@@ -133,21 +134,26 @@ button {
   .roomie-box__address {
     color: #363636; }
 
-.button--primary {
+.button {
   background-color: #C2185B;
   color: #F5F5F5;
-  font-size: 1.8rem;
-  padding: .8rem 1.2rem;
-  border-radius: .7rem;
-  margin: 1.5rem; }
-
-.button--login {
-  background-color: #C2185B;
-  color: #F5F5F5;
-  font-size: 1.2rem;
-  padding: .2rem .4rem;
-  border-radius: .3rem;
-  margin: 1.5rem; }
+  cursor: pointer; }
+  .button:hover {
+    background-color: #E91E63; }
+  .button:active {
+    background-color: #C2185B; }
+  .button--primary {
+    font-size: 1.8rem;
+    padding: .8rem 1.2rem;
+    border-radius: .7rem;
+    margin: 1.5rem; }
+  .button--login {
+    font-size: 1.4rem;
+    padding: .4rem .6rem;
+    border-radius: .3rem;
+    margin: 1.5rem; }
+    .button--login:nth-of-type(1) {
+      margin-right: 0rem; }
 
 .flat-box {
   width: 30%;

@@ -82,7 +82,7 @@ class RoomieRegister extends React.Component {
                         accept="image/png, image/jpeg"
                     />
     
-                <button class="button--primary" type="submit">Submit</button>
+                <button class="button button--primary" type="submit">Submit</button>
 
                 </form>
             </div>
