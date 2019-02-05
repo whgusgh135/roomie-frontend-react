@@ -16,7 +16,7 @@ class UserRegister extends React.Component {
         }
     }
 
-    loginUser(userData) {
+    registerUser(userData) {
         this.props.dispatch(actions.registerUser(userData));
     }
 
@@ -27,7 +27,7 @@ class UserRegister extends React.Component {
     handleSubmit = event => {
         event.preventDefault();
         if(this.state.password === this.state.passwordConfirm){
-            this.loginUser(this.state);
+            this.registerUser(this.state);
         } else {
             this.props.dispatch(setError("Password not same"));
         }

@@ -40,28 +40,6 @@ export const authUser = userData => {
     }
 }
 
-export const createRoomie = userData => {
-    return dispatch => {
-        return new Promise((resolve, reject) => {
-            const config = {     
-                headers: { 'content-type': 'multipart/form-data' }
-            }
-            return axios.post("/api/roomie", userData, config)
-                .then(res => res.data)
-                .then(({token, ...user}) => {
-                    setAuthorizationToken(token);
-                    sessionStorage.setItem("jwtToken", token);
-                    dispatch(setCurrentUser(user));
-                    resolve();
-                })
-                .catch(error => {
-                    dispatch(setError(error.response.data.error));
-                    reject();
-                })
-        })
-    }
-}
-
 export const logout = () => {
     return dispatch => {
         setAuthorizationToken(false);
@@ -90,6 +68,23 @@ export const registerUser = userData => {
     }
 }
 
+export const changePassword = userData => {
+    return dispatch => {
+        return new Promise((resolve, reject) => {
+            return axios.put("/api/user/changePassword", {...userData})
+            .then(res => {
+                console.log(res);
+                resolve();
+            })
+            .catch(error => {
+                console.log(error);
+                dispatch(setError(error.response.data.error));
+                reject();
+            })
+        })
+    }
+}
+
 export const checkAuthState = () => {
     return dispatch => {
         return new Promise((resolve, reject) => {
@@ -109,6 +104,32 @@ export const checkAuthState = () => {
                     }));
                 }
             }
+        })
+    }
+}
+
+
+// -------------Roomie
+
+
+export const createRoomie = userData => {
+    return dispatch => {
+        return new Promise((resolve, reject) => {
+            const config = {     
+                headers: { 'content-type': 'multipart/form-data' }
+            }
+            return axios.post("/api/roomie", userData, config)
+                .then(res => res.data)
+                .then(({token, ...user}) => {
+                    setAuthorizationToken(token);
+                    sessionStorage.setItem("jwtToken", token);
+                    dispatch(setCurrentUser(user));
+                    resolve();
+                })
+                .catch(error => {
+                    dispatch(setError(error.response.data.error));
+                    reject();
+                })
         })
     }
 }
