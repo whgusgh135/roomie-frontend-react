@@ -6,8 +6,9 @@ import { configureStore } from './redux/reducer';
 import { Home } from './components/Home/Home';
 import Navbar from './components/Navbar/Navbar';
 import Sidebar from './components/Sidebar/Sidebar';
-import UserRegister from './components/Register/UserRegister';
-import RoomieRegister from './components/Register/RoomieRegister';
+import UserRegister from './components/User/UserRegister';
+import UserPasswordChange from './components/User/UserPasswordChange';
+import RoomieRegister from './components/Roomie/RoomieRegister';
 import Roomie from './components/Roomie/Roomie';
 
 import * as actions from './redux/actions/auth';
@@ -32,6 +33,7 @@ class App extends Component {
               <Route exact path="/" render={() => <Redirect to="/home" />} />
               <Route exact path="/home" component={Home} />
               <Route exact path="/userregister" component={UserRegister} />
+              <Route exact path="/userchangepassword" component={UserPasswordChange} />
               <Route exact path="/roomieregister" component={RoomieRegister} />
               <Route exact path="/roomie" component={Roomie} />
           </div>
