@@ -11,14 +11,16 @@ import UserPasswordChange from './components/User/UserPasswordChange';
 import RoomieRegister from './components/Roomie/RoomieRegister';
 import Roomie from './components/Roomie/Roomie';
 
-import * as actions from './redux/actions/auth';
+import * as authAction from './redux/actions/auth';
+import * as roomieAction from './redux/actions/roomie';
 
 const store = configureStore();
 
 class App extends Component {
 
   componentWillMount() {
-    store.dispatch(actions.checkAuthState());
+    store.dispatch(authAction.checkAuthState());
+    store.dispatch(roomieAction.selectRoomies());
   }
 
   render() {
