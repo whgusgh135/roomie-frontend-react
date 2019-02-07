@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Redirect } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { configureStore } from './redux/reducer';
 
-import { Home } from './components/Home/Home';
+import Home from './components/Home/Home';
 import Navbar from './components/Navbar/Navbar';
 import Sidebar from './components/Sidebar/Sidebar';
 import UserRegister from './components/User/UserRegister';
