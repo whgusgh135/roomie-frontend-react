@@ -31,8 +31,8 @@ class NavbarLogin extends React.Component {
         const { id, password } = this.state;
     
         return (
-            <div>
-                <form onSubmit={this.handleSubmit} className="auth_form">
+            <div className="nav-items__auth">
+                <form onSubmit={this.handleSubmit} >
                     <label>ID: </label>
                     <input 
                         className="input--login"
@@ -52,10 +52,11 @@ class NavbarLogin extends React.Component {
                         required
                     />
                 <button className="button button--login" type="submit">Login</button>
+                
+                </form>
                 <button className="button button--login" type="submit">
                     <Link to="/userregister">Register</Link>
                 </button>
-                </form>
             </div>
         )
     }

@@ -49,11 +49,15 @@ button {
     height: 4.5rem;
     width: 4.5rem;
     border-radius: 50px;
-    border: 1px #F5F5F5 solid; }
+    border: 1px #F5F5F5 solid;
+    object-fit: cover; }
   .nav-items__profile--name {
     padding: 2rem; }
   .nav-items__profile:hover {
     background-color: #F5F5F5; }
+
+.nav-items__auth {
+  display: flex; }
 
 .side-items {
   text-align: center;
@@ -74,7 +78,8 @@ button {
     width: 8rem;
     height: 8rem;
     border-radius: 50px;
-    margin: 2rem auto; }
+    margin: 2rem auto;
+    object-fit: cover; }
     @media only screen and (max-width: 56.25em) {
       .side-items__profile-img {
         width: 6rem;
@@ -105,6 +110,7 @@ button {
   width: 30%;
   background-color: #ffffff;
   padding: 3rem;
+  margin-bottom: 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -151,9 +157,7 @@ button {
     font-size: 1.4rem;
     padding: .4rem .6rem;
     border-radius: .3rem;
-    margin: 1.5rem; }
-    .button--login:nth-of-type(1) {
-      margin-right: 0rem; }
+    margin-right: 1.5rem; }
 
 .flat-box {
   width: 30%;
@@ -182,7 +186,8 @@ button {
 
 .input--login {
   width: 12rem;
-  margin: .2rem; }
+  margin: .2rem;
+  margin-right: 1rem; }
 
 .register-form {
   width: 30rem;

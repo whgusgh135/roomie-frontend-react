@@ -5,7 +5,7 @@ import * as moment from 'moment';
 import { SET_CURRENT_USER } from '../actionTypes';
 import { setError } from './error';
 
-const setAuthorizationToken = token => {
+ export const setAuthorizationToken = token => {
     if(token){
         axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
     } else {
@@ -13,7 +13,7 @@ const setAuthorizationToken = token => {
     }
 }
 
-const setCurrentUser = user => {
+export const setCurrentUser = user => {
     return {
         type: SET_CURRENT_USER,
         user: user
@@ -104,32 +104,6 @@ export const checkAuthState = () => {
                     }));
                 }
             }
-        })
-    }
-}
-
-
-// -------------Roomie
-
-
-export const createRoomie = userData => {
-    return dispatch => {
-        return new Promise((resolve, reject) => {
-            const config = {     
-                headers: { 'content-type': 'multipart/form-data' }
-            }
-            return axios.post("/api/roomie", userData, config)
-                .then(res => res.data)
-                .then(({token, ...user}) => {
-                    setAuthorizationToken(token);
-                    sessionStorage.setItem("jwtToken", token);
-                    dispatch(setCurrentUser(user));
-                    resolve();
-                })
-                .catch(error => {
-                    dispatch(setError(error.response.data.error));
-                    reject();
-                })
         })
     }
 }
