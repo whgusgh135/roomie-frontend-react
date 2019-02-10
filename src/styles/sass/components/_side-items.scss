@@ -22,6 +22,7 @@
         height: 8rem;
         border-radius: 50px;
         margin: 2rem auto;
+        object-fit: cover;
 
         @include respond(tab-port) {
             width: 6rem;

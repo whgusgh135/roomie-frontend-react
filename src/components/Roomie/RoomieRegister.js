@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import * as actions from '../../redux/actions/auth';
+import * as actions from '../../redux/actions/roomie';
 import FormData from 'form-data';
 
 class RoomieRegister extends React.Component {
@@ -23,7 +23,9 @@ class RoomieRegister extends React.Component {
         event.preventDefault();
 
         let formData = new FormData();
-        formData.append('profileImage', this.state.profileImage, this.state.profileImage.name);
+        if(this.state.profileImage) {
+            formData.append('profileImage', this.state.profileImage, this.state.profileImage.name);
+        }
         formData.append('phoneNumber', this.state.phoneNumber);
         formData.append('region', this.state.region);
         formData.append('minBudget', this.state.minBudget);

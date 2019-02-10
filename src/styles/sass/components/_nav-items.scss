@@ -33,6 +33,7 @@
             width: 4.5rem;
             border-radius: 50px;
             border: 1px $color-grey-light solid;
+            object-fit: cover;
         }
 
         &--name {
@@ -42,5 +43,9 @@
         &:hover {
             background-color: $color-grey-light;
         }
+    }
+
+    &__auth {
+        display: flex;
     }
 }

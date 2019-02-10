@@ -20,7 +20,7 @@ class App extends Component {
 
   componentWillMount() {
     store.dispatch(authAction.checkAuthState());
-    store.dispatch(roomieAction.selectRoomies());
+    store.dispatch(roomieAction.selectRoomies(3));
   }
 
   render() {
