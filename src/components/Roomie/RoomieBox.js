@@ -9,7 +9,7 @@ export class RoomieBox extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            profileImage: "/api/profileimage/" + this.props.roomie.profileImage
+            profileImage: "/api/image/" + this.props.roomie.profileImage
         }
     }
 
