@@ -1,6 +1,6 @@
 import React from 'react';
 import { RoomieBox } from '../Roomie/RoomieBox';
-import { FlatBox } from '../Flat/FlatBox';
+import { RentBox } from '../Rent/RentBox';
 import { connect } from 'react-redux';
 import * as roomieAction from '../../redux/actions/roomie';
 import * as rentAction from '../../redux/actions/rent';
@@ -37,13 +37,19 @@ export class Home extends React.Component {
         // replace this with api call to get flat data
         const flats = [{"id": "1"}, {"id": "2"}, {"id": "3"}, {"id": "4"}, {"id": "5"}, {"id": "6"}];
 
-        return (
-            flats.map(flat => {
-                return (
-                    <FlatBox flat={flat} />
-                )
-            })
-        )
+        if(this.props.rent.rents.length) {
+            return (
+                this.props.rent.rents.map(rent => {
+                    return (
+                        <RentBox rent={rent} />
+                    )
+                })
+            )
+        } else {
+            return (
+                <div>Loading...</div>
+            )
+        }
     }
 
     render() {       
@@ -70,7 +76,8 @@ export class Home extends React.Component {
 
 function mapStateToProps(state) {
     return {
-        roomie: state.roomieReducer
+        roomie: state.roomieReducer,
+        rent: state.rentReducer
     }
 }
 

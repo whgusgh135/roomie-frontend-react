@@ -13,7 +13,7 @@ class Sidebar extends React.Component {
     }
 
     renderSidebarItems() {
-        let sidebarItem = ["Home", "Roomie", "Flat"];
+        let sidebarItem = ["Home", "Roomie", "Rent"];
         if(this.props.auth.isAuthenticated) {
             sidebarItem.unshift("My account");
         } 

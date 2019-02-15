@@ -11,9 +11,9 @@ import UserPasswordChange from './components/User/UserPasswordChange';
 import RoomieRegister from './components/Roomie/RoomieRegister';
 import Roomie from './components/Roomie/Roomie';
 import RentRegister from './components/Rent/RentRegister';
+import Rent from './components/Rent/Rent';
 
 import * as authAction from './redux/actions/auth';
-import * as roomieAction from './redux/actions/roomie';
 
 const store = configureStore();
 
@@ -21,7 +21,6 @@ class App extends Component {
 
   componentWillMount() {
     store.dispatch(authAction.checkAuthState());
-    store.dispatch(roomieAction.selectRoomies(3));
   }
 
   render() {
@@ -40,6 +39,8 @@ class App extends Component {
               <Route exact path="/roomieregister" component={RoomieRegister} />
               <Route exact path="/roomie" component={Roomie} />
               <Route exact path="/rentregister" component={RentRegister} />
+              <Route exact path="/rent" component={Rent} />
+
           </div>
         </BrowserRouter>
       </Provider>
