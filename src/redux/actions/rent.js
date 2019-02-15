@@ -2,7 +2,7 @@ import axios from 'axios';
 import { GET_RENT } from '../actionTypes';
 import { setError } from './error';
 
-const getRent = (rent) => {
+const getRents = (rent) => {
     return {
         type: GET_RENT,
         rent: rent
@@ -15,7 +15,7 @@ export const selectRent = (num) => {
             return axios.get("/api/rent", {params: {num}})
                 .then(res => res.data)
                 .then(rent => {
-                    dispatch(getRent(rent));
+                    dispatch(getRents(rent));
                     resolve();
                 })
                 .catch(error => {
@@ -39,6 +39,23 @@ export const createRent = userData => {
                 })
                 .catch(error => {
                     dispatch(setError(error.response.data.error));
+                    reject();
+                })
+        })
+    }
+}
+
+export const searchRents = (region) => {
+    return dispatch => {
+        return new Promise((resolve, reject) => {
+            return axios.get(`/api/rent/?region=${region}`)
+                .then(res => res.data)
+                .then(rents => {
+                    dispatch(getRents(rents));
+                    resolve();
+                })
+                .catch(error => {
+                    dispatch(setError(error));
                     reject();
                 })
         })

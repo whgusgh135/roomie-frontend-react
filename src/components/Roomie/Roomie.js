@@ -14,7 +14,6 @@ class Roomie extends React.Component {
     
     
     componentDidMount() {
-        window.addEventListener("scroll", this.handleScroll);
         this.props.dispatch(actions.selectRoomies(this.state.items));
     }
 
