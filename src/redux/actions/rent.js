@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { GET_RENT } from '../actionTypes';
-import { setError } from './error';
+import { setError, setRedirect } from './status';
 
 const getRents = (rent) => {
     return {
@@ -35,6 +35,7 @@ export const createRent = userData => {
             return axios.post("/api/rent", userData, config)
                 .then(res => res.data)
                 .then(() => {
+                    dispatch(setRedirect("home"));
                     resolve();
                 })
                 .catch(error => {

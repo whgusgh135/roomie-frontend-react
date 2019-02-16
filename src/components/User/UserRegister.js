@@ -2,7 +2,7 @@ import React from 'react';
 import * as actions from '../../redux/actions/auth';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import { setError } from '../../redux/actions/error';
+import { setError } from '../../redux/actions/status';
 
 class UserRegister extends React.Component {
     constructor() {

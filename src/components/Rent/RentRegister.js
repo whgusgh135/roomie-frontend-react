@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../../redux/actions/rent';
 import FormData from 'form-data';
+import { Redirect } from 'react-router-dom';
 
 class RentRegister extends React.Component {
     constructor() {
@@ -62,6 +63,10 @@ class RentRegister extends React.Component {
                 maxResidents,
                 rentPerWeek,
                 description } = this.state;
+
+        if(this.props.status.redirect == "home") {
+            return <Redirect to="/home" />
+        }
 
         return (
             <div className="register">
@@ -149,7 +154,8 @@ class RentRegister extends React.Component {
 
 function mapStateToProps(state) {
     return {
-        auth: state.authReducer
+        auth: state.authReducer,
+        status: state.statusReducer
     }
 }
 
