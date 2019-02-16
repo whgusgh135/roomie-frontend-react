@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { GET_ROOMIES } from '../actionTypes';
-import { setError } from './error';
+import { setError, setRedirect } from './status';
 import { setAuthorizationToken, setCurrentUser } from './auth';
 
 const getRoomies = roomies => {
@@ -56,6 +56,7 @@ export const createRoomie = userData => {
                     setAuthorizationToken(token);
                     sessionStorage.setItem("jwtToken", token);
                     dispatch(setCurrentUser(user));
+                    dispatch(setRedirect("home"));
                     resolve();
                 })
                 .catch(error => {

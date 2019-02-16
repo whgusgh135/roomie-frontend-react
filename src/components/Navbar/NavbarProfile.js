@@ -8,7 +8,7 @@ export class NavbarProfile extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            profileImage: "/api/profileimage/" + this.props.auth.user.roomie.profileImage
+            profileImage: "/api/image/" + this.props.auth.user.roomie.profileImage
         }
     }
 

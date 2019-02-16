@@ -3,7 +3,7 @@ import * as jwt from 'jsonwebtoken';
 import * as moment from 'moment';
 
 import { SET_CURRENT_USER } from '../actionTypes';
-import { setError } from './error';
+import { setError } from './status';
 
  export const setAuthorizationToken = token => {
     if(token){

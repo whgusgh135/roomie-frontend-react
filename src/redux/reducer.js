@@ -2,14 +2,14 @@ import { combineReducers, createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk'; // needs thunk for asynchronous dispatch
 
 import { authReducer } from './reducers/authReducer';
-import { errorReducer } from './reducers/errorReducer';
+import { statusReducer } from './reducers/statusReducer';
 import { roomieReducer } from './reducers/roomieReducer';
 import { rentReducer } from './reducers/rentReducer';
 
 // combine all reducers
 const rootReducer = combineReducers({
     authReducer,
-    errorReducer,
+    statusReducer,
     roomieReducer,
     rentReducer
 });

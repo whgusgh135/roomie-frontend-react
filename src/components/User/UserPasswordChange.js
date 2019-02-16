@@ -1,7 +1,7 @@
 import React from 'react';
 import * as actions from '../../redux/actions/auth';
 import { connect } from 'react-redux';
-import { setError } from '../../redux/actions/error';
+import { setError } from '../../redux/actions/status';
 
 class UserPasswordChange extends React.Component {
     constructor(props){
