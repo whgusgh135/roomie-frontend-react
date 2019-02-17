@@ -1,21 +1,21 @@
 .roomie-box {
-
-    width: 30%;
+    border: 1px solid $color-grey-light-2;
+    border-radius: .2rem;
+    width: 31%;
     background-color: $color-white; 
     padding: 3rem;
-    margin-bottom: 2rem;
+
+    margin: 1.1666%;
 
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
 
-    @include respond(tab-land) {
-        width: 32%;
-    }
+
     @include respond(tab-port) {
-        padding: 1rem;
-        width: 33%;
+        width: 46%;
+        margin: 2%;
     }
     @include respond(phone) {
         width: 70%;

@@ -10,17 +10,6 @@
         }
     }
 
-    &__search-bar {
-        border: none;
-        border-radius: 50px;
-        height: 2.5rem;
-        background-color: $color-grey-light;
-        padding: 0 2rem 0 2rem;
-        @include respond(mini) {
-            margin-left: 1rem;
-        }
-    }
-
     &__profile {
         text-decoration: none;
         color: $color-grey-dark;

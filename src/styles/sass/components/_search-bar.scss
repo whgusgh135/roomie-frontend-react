@@ -1,0 +1,18 @@
+.search-bar {
+    border: 1px solid $color-grey-light-2;
+    border-radius: 50px;
+    height: 2.5rem;
+    background-color: $color-white;
+    padding: 0 2rem 0 2rem;
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+    
+    @include respond(mini) {
+        margin-left: 1rem;
+    }
+
+    &:focus {
+        outline: none;
+        border: 1px solid $color-primary;
+    }
+}

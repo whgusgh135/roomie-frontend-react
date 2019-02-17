@@ -10,9 +10,7 @@ class Navbar extends React.Component {
         return(
             <nav className="navbar">  
                 <img src={logo} alt="Roomie logo" className="nav-items__logo" />
-                <form>
-                    <input className="nav-items__search-bar" type="text" placeholder="Search" />
-                </form>
+                
                 
                 {this.props.auth.isAuthenticated ? (
                     <NavbarProfile auth={this.props.auth} />

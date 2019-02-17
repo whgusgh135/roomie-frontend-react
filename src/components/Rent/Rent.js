@@ -28,7 +28,7 @@ class Rent extends React.Component {
             )
         } else {
             return (
-                <div>Loading...</div>
+                <p className="search-container__message">No result</p>
             )
         }
     }
@@ -37,12 +37,13 @@ class Rent extends React.Component {
         return (
             <main className="home">
                 <RentSearch />
-                <div className="home-list">
-                    <h3 className="home-list__title">Your potential roommates</h3>
-                    <a href="#" className="home-list__link">Find out more</a>
-                </div>
+                
                 <div className="home-list">
                     {this.renderRentBox()}
+                </div>
+
+                <div className="home-list__page-number">
+                    1 2 3
                 </div>
 
             </main>

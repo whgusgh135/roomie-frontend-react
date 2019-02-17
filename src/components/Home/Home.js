@@ -4,6 +4,7 @@ import { RentBox } from '../Rent/RentBox';
 import { connect } from 'react-redux';
 import * as roomieAction from '../../redux/actions/roomie';
 import * as rentAction from '../../redux/actions/rent';
+import { Link } from 'react-router-dom';
 
 export class Home extends React.Component {
     componentDidMount() {
@@ -55,16 +56,17 @@ export class Home extends React.Component {
     render() {       
         return (
             <main className="home">
-                <div className="home-list">
+                <div className="home-list home-list--space-between">
                     <h3 className="home-list__title">Your potential roommates</h3>
-                    <a href="#" className="home-list__link">Find out more</a>
+                    <Link to="/roomie" className="home-list__link">Find out more</Link>
                 </div>
                 <div className="home-list">
                     {this.renderRoomieBox()}
                 </div>
 
-                <div className="home-list">
-                    <h3 className="home-list__title">Browse flats</h3>
+                <div className="home-list home-list--space-between">
+                    <h3 className="home-list__title">Browse rent</h3>
+                    <Link to="/rent" className="home-list__link">Find out more</Link>
                 </div>
                 <div className="home-list">
                     {this.renderFlatBox()}
