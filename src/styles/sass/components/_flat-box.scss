@@ -1,7 +1,7 @@
 .flat-box {
-    width: 30%;
+    width: 31%;
     height: 25rem;
-    margin-bottom: 4rem;
+    margin: 1.1666%;
     background-color: $color-white; 
 
     &__img {
@@ -10,14 +10,12 @@
     }
 
     @include respond(tab-land) {
-        width: 32%;
         height: 22rem;
-        margin-bottom: 2rem;
     }
     @include respond(tab-port) {
-        width: 33%;
+        width: 46%;
+        margin: 2%;
         height: 20rem;
-        margin-bottom: .5rem;
     }
     @include respond(phone) {
         width: 70%;

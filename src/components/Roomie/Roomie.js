@@ -28,7 +28,7 @@ class Roomie extends React.Component {
             )
         } else {
             return (
-                <div>Loading...</div>
+                <p className="search-container__message">No result</p>
             )
         }
     }
@@ -37,10 +37,7 @@ class Roomie extends React.Component {
         return (
             <main className="home">
                 <RoomieSearch />
-                <div className="home-list">
-                    <h3 className="home-list__title">Your potential roommates</h3>
-                    <a href="#" className="home-list__link">Find out more</a>
-                </div>
+                
                 <div className="home-list">
                     {this.renderRoomieBox()}
                 </div>

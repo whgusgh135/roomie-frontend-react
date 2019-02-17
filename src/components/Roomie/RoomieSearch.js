@@ -3,21 +3,57 @@ import { connect } from 'react-redux';
 import * as actions from '../../redux/actions/roomie';
 
 class RoomieSearch extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            searchBy: "Region",
+            searching: ""
+        }
+    }
 
     handleChange = event => {
-        this.props.dispatch(actions.searchRoomies(event.target.value));
+        this.setState({searching: event.target.value});
+        this.props.dispatch(actions.searchRoomies(event.target.value.toLowerCase()));
+    }
+
+    handleClick = event => {
+        event.preventDefault();
+        this.setState({searchBy: event.target.value})
+    }
+
+    renderSearching = () => {
+        if(this.state.searching) {
+            return(
+                <h3 className="search-container__heading">Searching by {this.state.searchBy} "{this.state.searching}"</h3>
+            )
+        }
     }
 
     render() {
         return (
-            <form>
+            <div className="search-container">
+                <div className="search-container__setting">
+                    <button 
+                        onClick={this.handleClick} 
+                        className={this.state.searchBy == "Region" ? "button--search--active" : "button--search"}
+                        value="Region"
+                        >Region
+                    </button>
+                    <button 
+                        onClick={this.handleClick} 
+                        className={this.state.searchBy == "Budget" ? "button--search--active" : "button--search"}
+                        value="Budget"
+                        >Budget
+                    </button>
+                </div>
                 <input 
-                    className="nav-items__search-bar" 
+                    className="search-bar" 
                     type="text" 
-                    placeholder="Search Region"
+                    placeholder={`Search by ${this.state.searchBy}`}
                     onChange={this.handleChange}
                 />
-            </form>
+                {this.renderSearching()}
+            </div> 
         )
     }
 }

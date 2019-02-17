@@ -2,11 +2,12 @@
     background-color: $color-grey-light;
     padding-top: 6rem;
     margin-left: 25rem;
+    
 
     display: grid;
     grid-template-columns:  
         [left-space] minmax(1rem, 1fr)
-        [center-start] minmax(10rem, 100rem)
+        [center-start] minmax(10rem, 120rem)
         [center-end] minmax(1rem, 1fr)
         [right-space];
 
