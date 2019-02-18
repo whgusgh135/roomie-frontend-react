@@ -26,6 +26,10 @@ class RentSearch extends React.Component {
             return(
                 <h3 className="search-container__heading">Searching by {this.state.searchBy} "{this.state.searching}"</h3>
             )
+        } else {
+            return (
+                <h3 className="search-container__heading">All Rent</h3>
+            )
         }
     }
 
