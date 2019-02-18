@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux'
 import { RoomieBox } from './RoomieBox';
 import RoomieSearch from './RoomieSearch';
+import { RoomieDetail } from './RoomieDetail';
 import * as actions from '../../redux/actions/roomie';
 
 class Roomie extends React.Component {
@@ -36,12 +37,17 @@ class Roomie extends React.Component {
     render() {       
         return (
             <main className="home">
+                <RoomieDetail auth={this.props.auth} />
+
                 <RoomieSearch />
                 
                 <div className="home-list">
                     {this.renderRoomieBox()}
                 </div>
 
+                <div className="home-list--more">
+                    <button className="button button--more">+ Find more</button>
+                </div>
             </main>
         )
     }
