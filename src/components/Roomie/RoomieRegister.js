@@ -10,8 +10,7 @@ class RoomieRegister extends React.Component {
         this.state = {
             phoneNumber: "",
             region: "",
-            minBudget: "",
-            maxBudget: "",
+            budget: "50",
             profileImage: null
         }
     }
@@ -29,8 +28,7 @@ class RoomieRegister extends React.Component {
         }
         formData.append('phoneNumber', this.state.phoneNumber);
         formData.append('region', this.state.region);
-        formData.append('minBudget', this.state.minBudget);
-        formData.append('maxBudget', this.state.maxBudget);
+        formData.append('budget', this.state.budget);
 
         this.props.dispatch(actions.createRoomie(formData));
     }
@@ -40,7 +38,7 @@ class RoomieRegister extends React.Component {
     }
 
     render() {
-        const { phoneNumber, region, minBudget, maxBudget } = this.state;
+        const { phoneNumber, region, budget } = this.state;
 
         if(this.props.status.redirect == "home") {
            return <Redirect to="/home" />
@@ -65,22 +63,22 @@ class RoomieRegister extends React.Component {
                         onChange={this.handleChange}
                         required
                     />
-                    <label className="register-form__label">Min Budget: </label>
-                    <input className="register-form__input" 
-                        type="text"
-                        name="minBudget"
-                        value={minBudget}
+                    <label className="register-form__label">Budget: </label>
+                    <select className="" 
+                        name="budget"
+                        value={budget}
                         onChange={this.handleChange}
                         required
-                    />
-                    <label className="register-form__label">Max Budget: </label>
-                    <input className="register-form__input" 
-                        type="text"
-                        name="maxBudget"
-                        value={maxBudget}
-                        onChange={this.handleChange}
-                        required
-                    />
+                    >
+                        <option value="50" selected>Less than $100 per week</option>
+                        <option value="100">$100 per week</option>
+                        <option value="150">$150 per week</option>
+                        <option value="200">$200 per week</option>
+                        <option value="250">$250 per week</option>
+                        <option value="300">$300 per week</option>
+                        <option value="350">$350 per week</option>
+                        <option value="400">Over $400 per week</option>
+                    </select>
                     <label className="register-form__label">Profile Image: </label>
                     <input className="register-form__input" 
                         type="file"

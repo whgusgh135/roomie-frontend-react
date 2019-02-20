@@ -42,8 +42,8 @@ class Rent extends React.Component {
                     {this.renderRentBox()}
                 </div>
 
-                <div className="home-list__page-number">
-                    1 2 3
+                <div className="home-list--more">
+                    <button className="button button--more">+ Find more</button>
                 </div>
 
             </main>
