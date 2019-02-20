@@ -13,7 +13,11 @@ class RoomieSearch extends React.Component {
 
     handleChange = event => {
         this.setState({searching: event.target.value});
-        this.props.dispatch(actions.searchRoomies(event.target.value.toLowerCase()));
+        if(this.state.searchBy === "Region") {
+            this.props.dispatch(actions.searchRoomiesByRegion(event.target.value.toLowerCase()));
+        } else {
+            this.props.dispatch(actions.searchRoomiesByBudget(event.target.value.toLowerCase()));
+        }
     }
 
     handleClick = event => {
@@ -29,6 +33,36 @@ class RoomieSearch extends React.Component {
         } else {
             return (
                 <h3 className="search-container__heading">All Roommates</h3>
+            )
+        }
+    }
+    renderSearchBox = () => {
+        if(this.state.searchBy === "Region") {
+            return (
+                <input 
+                    className="search-bar" 
+                    type="text" 
+                    placeholder={`Search by ${this.state.searchBy}`}
+                    onChange={this.handleChange}
+                />
+            )
+        } else {
+            return (
+                <select 
+                    className="search-bar"
+                    name="budget"
+                    onChange={this.handleChange}
+                    required
+                >
+                    <option value="" disabled selected>Select the budget</option>
+                    <option value="100">$100 per week</option>
+                    <option value="150">$150 per week</option>
+                    <option value="200">$200 per week</option>
+                    <option value="250">$250 per week</option>
+                    <option value="300">$300 per week</option>
+                    <option value="350">$350 per week</option>
+                    <option value="400">Over $400 per week</option>
+                </select>
             )
         }
     }
@@ -50,12 +84,7 @@ class RoomieSearch extends React.Component {
                         >Budget
                     </button>
                 </div>
-                <input 
-                    className="search-bar" 
-                    type="text" 
-                    placeholder={`Search by ${this.state.searchBy}`}
-                    onChange={this.handleChange}
-                />
+                {this.renderSearchBox()}
                 {this.renderSearching()}
             </div> 
         )

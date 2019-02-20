@@ -15,6 +15,8 @@ class RentRegister extends React.Component {
             maxResidents: "1",
             rentPerWeek: "",
             description: "",
+            phoneNumber: "",
+            email: "",
             rentImages: null
         }
     }
@@ -39,6 +41,8 @@ class RentRegister extends React.Component {
         formData.append('maxResidents', this.state.maxResidents);
         formData.append('rentPerWeek', this.state.rentPerWeek);
         formData.append('description', this.state.description);
+        formData.append('phoneNumber', this.state.phoneNumber);
+        formData.append('email', this.state.email);
 
         this.props.dispatch(actions.createRent(formData));
     }
@@ -49,7 +53,6 @@ class RentRegister extends React.Component {
             rentImages.push(event.target.files[i]);
         }
         this.setState({rentImages});
-        console.log(event.target.files);
     }
 
     render() {
@@ -59,6 +62,8 @@ class RentRegister extends React.Component {
                 numberOfRooms,
                 maxResidents,
                 rentPerWeek,
+                phoneNumber,
+                email,
                 description } = this.state;
 
         if(this.props.status.redirect == "home") {
@@ -122,13 +127,26 @@ class RentRegister extends React.Component {
                         onChange={this.handleChange}
                         required
                     />
+                    <label className="register-form__label">Phone Number(optional): </label>
+                    <input className="register-form__input" 
+                        type="text"
+                        name="phoneNumber"
+                        value={phoneNumber}
+                        onChange={this.handleChange}
+                    />
+                    <label className="register-form__label">Email(optional): </label>
+                    <input className="register-form__input" 
+                        type="email"
+                        name="email"
+                        value={email}
+                        onChange={this.handleChange}
+                    />
                     <label className="register-form__label">Description: </label>
                     <textarea className="register-form__input" 
                         type="text"
                         name="description"
                         value={description}
                         onChange={this.handleChange}
-                        required
                     />
                     <label className="register-form__label">Rent Images: </label>
                     <input className="register-form__input" 

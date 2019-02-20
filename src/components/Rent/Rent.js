@@ -18,7 +18,7 @@ class Rent extends React.Component {
     }
 
     renderRentBox() {
-        if(this.props.rent.rents.length) {
+        if(this.props.rent.rents && this.props.rent.rents.length) {
             return (
                 this.props.rent.rents.map(rent => {
                     return (

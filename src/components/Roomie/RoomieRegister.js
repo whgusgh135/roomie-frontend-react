@@ -10,7 +10,7 @@ class RoomieRegister extends React.Component {
         this.state = {
             phoneNumber: "",
             region: "",
-            budget: "50",
+            budget: "100",
             profileImage: null
         }
     }
@@ -70,13 +70,12 @@ class RoomieRegister extends React.Component {
                         onChange={this.handleChange}
                         required
                     >
-                        <option value="50" selected>Less than $100 per week</option>
-                        <option value="100">$100 per week</option>
-                        <option value="150">$150 per week</option>
-                        <option value="200">$200 per week</option>
-                        <option value="250">$250 per week</option>
-                        <option value="300">$300 per week</option>
-                        <option value="350">$350 per week</option>
+                        <option value="100">Up to $100 per week</option>
+                        <option value="150">Up to $150 per week</option>
+                        <option value="200">Up to $200 per week</option>
+                        <option value="250">Up to $250 per week</option>
+                        <option value="300">Up to $300 per week</option>
+                        <option value="350">Up to $350 per week</option>
                         <option value="400">Over $400 per week</option>
                     </select>
                     <label className="register-form__label">Profile Image: </label>
