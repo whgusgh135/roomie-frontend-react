@@ -27,10 +27,27 @@ export const selectRoomies = (num) => {
     }
 }
 
-export const searchRoomies = (region) => {
+export const searchRoomiesByRegion = (region) => {
     return dispatch => {
         return new Promise((resolve, reject) => {
             return axios.get(`/api/roomie/?region=${region}`)
+                .then(res => res.data)
+                .then(roomies => {
+                    dispatch(getRoomies(roomies));
+                    resolve();
+                })
+                .catch(error => {
+                    dispatch(setError(error));
+                    reject();
+                })
+        })
+    }
+}
+
+export const searchRoomiesByBudget = (budget) => {
+    return dispatch => {
+        return new Promise((resolve, reject) => {
+            return axios.get(`/api/roomie/?budget=${budget}`)
                 .then(res => res.data)
                 .then(roomies => {
                     dispatch(getRoomies(roomies));

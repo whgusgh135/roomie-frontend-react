@@ -46,10 +46,44 @@ export const createRent = userData => {
     }
 }
 
-export const searchRents = (region) => {
+export const searchRentsByRegion = (region) => {
     return dispatch => {
         return new Promise((resolve, reject) => {
             return axios.get(`/api/rent/?region=${region}`)
+                .then(res => res.data)
+                .then(rents => {
+                    dispatch(getRents(rents));
+                    resolve();
+                })
+                .catch(error => {
+                    dispatch(setError(error));
+                    reject();
+                })
+        })
+    }
+}
+
+export const searchRentsByNumResidents = (numRes) => {
+    return dispatch => {
+        return new Promise((resolve, reject) => {
+            return axios.get(`/api/rent/?numRes=${numRes}`)
+                .then(res => res.data)
+                .then(rents => {
+                    dispatch(getRents(rents));
+                    resolve();
+                })
+                .catch(error => {
+                    dispatch(setError(error));
+                    reject();
+                })
+        })
+    }
+}
+
+export const searchRentsByRent = (rent) => {
+    return dispatch => {
+        return new Promise((resolve, reject) => {
+            return axios.get(`/api/rent/?rent=${rent}`)
                 .then(res => res.data)
                 .then(rents => {
                     dispatch(getRents(rents));
