@@ -8,9 +8,9 @@ class RoomieRegister extends React.Component {
     constructor() {
         super();
         this.state = {
-            phoneNumber: "",
             region: "",
             budget: "100",
+            description: "",
             profileImage: null
         }
     }
@@ -26,7 +26,7 @@ class RoomieRegister extends React.Component {
         if(this.state.profileImage) {
             formData.append('profileImage', this.state.profileImage, this.state.profileImage.name);
         }
-        formData.append('phoneNumber', this.state.phoneNumber);
+        formData.append('description', this.state.description);
         formData.append('region', this.state.region);
         formData.append('budget', this.state.budget);
 
@@ -38,23 +38,16 @@ class RoomieRegister extends React.Component {
     }
 
     render() {
-        const { phoneNumber, region, budget } = this.state;
+        const { description, region, budget } = this.state;
 
-        if(this.props.status.redirect == "home") {
+        if(this.props.status.redirect === "home" ||
+            !this.props.auth.isAuthenticated) {
            return <Redirect to="/home" />
         }
         return (
             <div className="register">
                 <form onSubmit={this.handleSubmit} className="register-form">
-                    <h3 className="register-form__heading">Roomie Registration</h3>
-                    <label className="register-form__label">Phone Number: </label>
-                    <input className="register-form__input"
-                        type="text"
-                        name="phoneNumber"
-                        value={phoneNumber}
-                        onChange={this.handleChange}
-                        required
-                    />
+                    <h3 className="register-form__heading">Roomie Registration</h3>  
                     <label className="register-form__label">Region: </label>
                     <input className="register-form__input" 
                         type="text"
@@ -78,13 +71,19 @@ class RoomieRegister extends React.Component {
                         <option value="350">Up to $350 per week</option>
                         <option value="400">Over $400 per week</option>
                     </select>
+                    <label className="register-form__label">Describe yourself(optional): </label>
+                    <textarea className="register-form__input"
+                        type="text"
+                        name="description"
+                        value={description}
+                        onChange={this.handleChange}
+                    />
                     <label className="register-form__label">Profile Image: </label>
                     <input className="register-form__input" 
                         type="file"
                         onChange={this.setFile}
                         accept="image/png, image/jpeg"
                     />
-    
                 <button class="button button--primary" type="submit">Submit</button>
 
                 </form>

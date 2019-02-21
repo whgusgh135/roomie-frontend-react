@@ -1,0 +1,36 @@
+.popup {
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba($color-black, .8);
+    z-index: 1000;
+    animation: fadeIn .3s ease-out;
+
+    &__content {
+        position: fixed;
+        display: flex;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 80rem;
+        height: 50rem;
+        background-color: $color-white;
+        z-index: 2000;
+        animation: popIn .3s ease-out;
+    }
+
+    &__left {
+        width: 60%;
+        display: flex;
+        align-items: center;
+        background-color: $color-black;
+    }
+
+    &__roomie-img {
+        width: 100%;
+        max-height: 100%;
+        object-fit: cover;
+    }
+}

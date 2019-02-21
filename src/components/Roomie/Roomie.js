@@ -37,7 +37,6 @@ class Roomie extends React.Component {
     render() {       
         return (
             <main className="home">
-                <RoomieDetail auth={this.props.auth} />
 
                 <RoomieSearch />
                 

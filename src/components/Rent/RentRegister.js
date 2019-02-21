@@ -66,7 +66,8 @@ class RentRegister extends React.Component {
                 email,
                 description } = this.state;
 
-        if(this.props.status.redirect == "home") {
+        if(this.props.status.redirect == "home" ||
+            !this.props.auth.isAuthenticated) {
             return <Redirect to="/home" />
         }
 

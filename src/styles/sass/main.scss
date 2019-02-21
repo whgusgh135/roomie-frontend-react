@@ -2,16 +2,18 @@
 @import "abstracts/mixins";
 
 @import "base/base";
+@import "base/animations";
 
 @import "components/nav-items";
 @import "components/side-items";
 @import "components/roomie-box";
 @import "components/button";
-@import "components/flat-box";
+@import "components/rent-box";
 @import "components/input";
 @import "components/register-form";
 @import "components/search-bar";
 @import "components/roomie-detail";
+@import "components/popup";
 
 @import "layout/container";
 @import "layout/navbar";

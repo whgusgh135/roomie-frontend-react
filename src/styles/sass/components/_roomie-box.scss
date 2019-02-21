@@ -12,7 +12,6 @@
     align-items: center;
     text-align: center;
 
-
     @include respond(tab-port) {
         width: 46%;
         margin: 2%;
@@ -39,5 +38,5 @@
 
     &__address {
         color: $color-grey-dark;
-    }
+    } 
 }
