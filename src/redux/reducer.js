@@ -5,13 +5,15 @@ import { authReducer } from './reducers/authReducer';
 import { statusReducer } from './reducers/statusReducer';
 import { roomieReducer } from './reducers/roomieReducer';
 import { rentReducer } from './reducers/rentReducer';
+import { messageReducer } from './reducers/messageReducer';
 
 // combine all reducers
 const rootReducer = combineReducers({
     authReducer,
     statusReducer,
     roomieReducer,
-    rentReducer
+    rentReducer,
+    messageReducer
 });
 
 // create store

@@ -5,4 +5,6 @@ export const SET_REDIRECT = "SET_REDIRECT";
 
 export const GET_ROOMIES = "GET_ROOMIES";
 
-export const GET_RENT = "GET_RENT";
+export const GET_RENTS = "GET_RENTS";
+
+export const GET_MESSAGES = "GET_MESSAGES";
