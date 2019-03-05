@@ -1,4 +1,4 @@
-import { GET_RENT } from '../actionTypes';
+import { GET_RENTS } from '../actionTypes';
 
 const INITIAL_STATE = {
     rents: {}
@@ -6,7 +6,7 @@ const INITIAL_STATE = {
 
 export const rentReducer = (state = INITIAL_STATE, action) => {
     switch(action.type) {
-        case GET_RENT:
+        case GET_RENTS:
             return {
                 ...state,
                 rents: action.rent

@@ -1,10 +1,10 @@
 import axios from 'axios';
-import { GET_RENT } from '../actionTypes';
+import { GET_RENTS } from '../actionTypes';
 import { setError, setRedirect } from './status';
 
 const getRents = (rent) => {
     return {
-        type: GET_RENT,
+        type: GET_RENTS,
         rent: rent
     }
 }

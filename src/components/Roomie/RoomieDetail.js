@@ -4,6 +4,10 @@ import React from 'react';
 export class RoomieDetail extends React.Component {
     constructor(props){
         super(props);
+        this.state = {
+            roomieId: this.props.roomie._id,
+            message: ""
+        }
     }
 
     render() {
