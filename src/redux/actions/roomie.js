@@ -83,3 +83,26 @@ export const createRoomie = userData => {
         })
     }
 }
+
+export const editRoomie = userData => {
+    return dispatch => {
+        return new Promise((resolve, reject) => {
+            const config = {     
+                headers: { 'content-type': 'multipart/form-data' }
+            }
+            return axios.put("/api/roomie", userData, config)
+                .then(res => res.data)
+                .then(({token, ...user}) => {
+                    setAuthorizationToken(token);
+                    sessionStorage.setItem("jwtToken", token);
+                    dispatch(setCurrentUser(user));
+                    dispatch(setRedirect("home"));
+                    resolve();
+                })
+                .catch(error => {
+                    dispatch(setError(error.response.data.error));
+                    reject();
+                })
+        })
+    }
+}
