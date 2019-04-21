@@ -33,7 +33,7 @@ class UserPasswordChange extends React.Component {
         return(
             <div className="register">
                 <form onSubmit={this.handleSubmit} className="register-form">
-                <h3 className="register-form__heading">User Registration</h3>
+                <h3 className="register-form__heading">Password Change</h3>
                     <label className="register-form__label">Current Password: </label>
                     <input className="register-form__input" 
                         type="password"

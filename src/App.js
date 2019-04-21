@@ -6,12 +6,19 @@ import { configureStore } from './redux/reducer';
 import Home from './components/Home/Home';
 import Navbar from './components/Navbar/Navbar';
 import Sidebar from './components/Sidebar/Sidebar';
+
 import UserRegister from './components/User/UserRegister';
 import UserPasswordChange from './components/User/UserPasswordChange';
-import RoomieRegister from './components/Roomie/RoomieRegister';
+import MyAccount from './components/User/MyAccount';
+
 import Roomie from './components/Roomie/Roomie';
-import RentRegister from './components/Rent/RentRegister';
+import RoomieEdit from './components/Roomie/RoomieEdit'
+import RoomieRegister from './components/Roomie/RoomieRegister';
+
 import Rent from './components/Rent/Rent';
+import RentRegister from './components/Rent/RentRegister';
+
+import { withAuth } from './components/HOC/withAuth';
 
 import * as authAction from './redux/actions/auth';
 
@@ -35,11 +42,13 @@ class App extends Component {
               <Route exact path="/" render={() => <Redirect to="/home" />} />
               <Route exact path="/home" component={Home} />
               <Route exact path="/userregister" component={UserRegister} />
-              <Route exact path="/userchangepassword" component={UserPasswordChange} />
-              <Route exact path="/roomieregister" component={RoomieRegister} />
+              <Route exact path="/userchangepassword" component={withAuth(UserPasswordChange)} />
+              <Route exact path="/roomieregister" component={withAuth(RoomieRegister)} />
+              <Route exact path="/roomieedit" component={withAuth(RoomieEdit)} />
               <Route exact path="/roomie" component={Roomie} />
               <Route exact path="/rentregister" component={RentRegister} />
               <Route exact path="/rent" component={Rent} />
+              <Route exact path="/my account" component={withAuth(MyAccount)} />
 
           </div>
         </BrowserRouter>
