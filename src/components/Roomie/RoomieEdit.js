@@ -11,7 +11,8 @@ class RoomieEdit extends React.Component {
             region: props.auth.user.roomie.region,
             budget: props.auth.user.roomie.budget,
             description: props.auth.user.roomie.description,
-            profileImage: null
+            profileImage: null,
+            userId: props.auth.user.userId
         }
     }
 
@@ -30,7 +31,7 @@ class RoomieEdit extends React.Component {
         formData.append('region', this.state.region);
         formData.append('budget', this.state.budget);
 
-        this.props.dispatch(actions.editRoomie(formData));
+        this.props.dispatch(actions.editRoomie(formData, this.state.userId));
     }
 
     setFile = event => {

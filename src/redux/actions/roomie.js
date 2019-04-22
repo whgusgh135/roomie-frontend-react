@@ -84,13 +84,13 @@ export const createRoomie = userData => {
     }
 }
 
-export const editRoomie = userData => {
+export const editRoomie = (userData, id) => {
     return dispatch => {
         return new Promise((resolve, reject) => {
             const config = {     
                 headers: { 'content-type': 'multipart/form-data' }
             }
-            return axios.put("/api/roomie", userData, config)
+            return axios.put(`/api/roomie/${id}`, userData, config)
                 .then(res => res.data)
                 .then(({token, ...user}) => {
                     setAuthorizationToken(token);

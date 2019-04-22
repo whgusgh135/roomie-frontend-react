@@ -4,12 +4,14 @@ import { RentBox } from '../Rent/RentBox';
 import { connect } from 'react-redux';
 import * as roomieAction from '../../redux/actions/roomie';
 import * as rentAction from '../../redux/actions/rent';
+import * as statusAction from '../../redux/actions/status';
 import { Link } from 'react-router-dom';
 
 export class Home extends React.Component {
     componentDidMount() {
         this.props.dispatch(roomieAction.selectRoomies(3));
         this.props.dispatch(rentAction.selectRent(6));
+        this.props.dispatch(statusAction.setRedirect(""));
     }
 
     renderRoomieBox() {
