@@ -28,6 +28,10 @@
         &--rent {
             font-size: 1.2rem;
         }
+        &--edit {
+            font-size: 2rem;
+            margin-top: 1rem;
+        }
     }
 
     @include respond(tab-land) {

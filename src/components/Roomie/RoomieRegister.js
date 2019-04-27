@@ -57,7 +57,7 @@ class RoomieRegister extends React.Component {
                         required
                     />
                     <label className="register-form__label">Budget: </label>
-                    <select className="" 
+                    <select className="register-form__input" 
                         name="budget"
                         value={budget}
                         onChange={this.handleChange}
@@ -72,7 +72,7 @@ class RoomieRegister extends React.Component {
                         <option value="400">Over $400 per week</option>
                     </select>
                     <label className="register-form__label">Describe yourself(optional): </label>
-                    <textarea className="register-form__input"
+                    <textarea className="register-form__textarea"
                         type="text"
                         name="description"
                         value={description}

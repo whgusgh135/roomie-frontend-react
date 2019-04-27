@@ -16,6 +16,7 @@ import RoomieEdit from './components/Roomie/RoomieEdit'
 import RoomieRegister from './components/Roomie/RoomieRegister';
 
 import Rent from './components/Rent/Rent';
+import RentEdit from './components/Rent/RentEdit';
 import RentRegister from './components/Rent/RentRegister';
 
 import { withAuth } from './components/HOC/withAuth';
@@ -46,7 +47,8 @@ class App extends Component {
               <Route exact path="/roomieregister" component={withAuth(RoomieRegister)} />
               <Route exact path="/roomieedit" component={withAuth(RoomieEdit)} />
               <Route exact path="/roomie" component={Roomie} />
-              <Route exact path="/rentregister" component={RentRegister} />
+              <Route exact path="/rentregister" component={withAuth(RentRegister)} />
+              <Route exact path="/rentedit/:id" component={withAuth(RentEdit)} />
               <Route exact path="/rent" component={Rent} />
               <Route exact path="/my account" component={withAuth(MyAccount)} />
 
