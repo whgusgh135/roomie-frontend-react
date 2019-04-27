@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { GET_RENTS } from '../actionTypes';
 import { setError, setRedirect } from './status';
+import { setAuthorizationToken, setCurrentUser } from './auth';
 
 const getRents = (rent) => {
     return {
@@ -34,7 +35,33 @@ export const createRent = userData => {
             }
             return axios.post("/api/rent", userData, config)
                 .then(res => res.data)
-                .then(() => {
+                .then(({token, ...user}) => {
+                    setAuthorizationToken(token);
+                    sessionStorage.setItem("jwtToken", token);
+                    dispatch(setCurrentUser(user));
+                    dispatch(setRedirect("home"));
+                    resolve();
+                })
+                .catch(error => {
+                    dispatch(setError(error.response.data.error));
+                    reject();
+                })
+        })
+    }
+}
+
+export const editRent = (userData, userId, rentId) => {
+    return dispatch => {
+        return new Promise((resolve, reject) => {
+            const config = {     
+                headers: { 'content-type': 'multipart/form-data' }
+            }
+            return axios.put(`/api/rent/${userId}/${rentId}`, userData, config)
+                .then(res => res.data)
+                .then(({token, ...user}) => {
+                    setAuthorizationToken(token);
+                    sessionStorage.setItem("jwtToken", token);
+                    dispatch(setCurrentUser(user));
                     dispatch(setRedirect("home"));
                     resolve();
                 })

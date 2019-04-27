@@ -58,7 +58,7 @@ class RoomieEdit extends React.Component {
                         required
                     />
                     <label className="register-form__label">Budget: </label>
-                    <select className="" 
+                    <select className="register-form__input" 
                         name="budget"
                         value={budget}
                         onChange={this.handleChange}
@@ -73,7 +73,7 @@ class RoomieEdit extends React.Component {
                         <option value="400">Over $400 per week</option>
                     </select>
                     <label className="register-form__label">Describe yourself(optional): </label>
-                    <textarea className="register-form__input"
+                    <textarea className="register-form__textarea"
                         type="text"
                         name="description"
                         value={description}
@@ -85,7 +85,7 @@ class RoomieEdit extends React.Component {
                         onChange={this.setFile}
                         accept="image/png, image/jpeg"
                     />
-                <button class="button button--primary" type="submit">Save Changes</button>
+                <button className="button button--primary" type="submit">Save Changes</button>
 
                 </form>
             </div>

@@ -100,7 +100,8 @@ export const checkAuthState = () => {
                         userId: decodedToken.userId,
                         firstName: decodedToken.firstName,
                         lastName: decodedToken.lastName,
-                        roomie: decodedToken.roomie
+                        roomie: decodedToken.roomie,
+                        rent: decodedToken.rent
                     }));
                 }
             }

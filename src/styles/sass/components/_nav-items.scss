@@ -37,4 +37,12 @@
     &__auth {
         display: flex;
     }
+
+    &__roomieRegister {
+        padding: 3rem;
+
+        &:hover {
+            background-color: $color-grey-light;
+        }
+    }
 }

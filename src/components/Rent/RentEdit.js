@@ -3,8 +3,9 @@ import { connect } from 'react-redux';
 import * as actions from '../../redux/actions/rent';
 import FormData from 'form-data';
 import { Redirect } from 'react-router-dom';
+import { setRedirect } from '../../redux/actions/status';
 
-class RentRegister extends React.Component {
+class RentEdit extends React.Component {
     constructor() {
         super();
         this.state = {
@@ -17,7 +18,31 @@ class RentRegister extends React.Component {
             description: "",
             phoneNumber: "",
             email: "",
-            rentImages: null
+            rentImages: [],
+            id: ""
+        }
+    }
+
+    componentDidMount() {
+        const { id } = this.props.match.params;
+
+        let index = this.props.auth.user.rent.findIndex(rent => rent._id == id);
+
+        if(index == -1) {
+            this.props.dispatch(setRedirect("home"));
+        } else {
+            this.setState({
+                propertyType: this.props.auth.user.rent[index].propertyType,
+                region: this.props.auth.user.rent[index].region,
+                address: this.props.auth.user.rent[index].address,
+                numberOfRooms: this.props.auth.user.rent[index].numberOfRooms,
+                maxResidents: this.props.auth.user.rent[index].maxResidents,
+                rentPerWeek: this.props.auth.user.rent[index].rentPerWeek,
+                description: this.props.auth.user.rent[index].description,
+                phoneNumber: this.props.auth.user.rent[index].phoneNumber,
+                email: this.props.auth.user.rent[index].email,
+                id
+            });
         }
     }
 
@@ -44,7 +69,7 @@ class RentRegister extends React.Component {
         formData.append('phoneNumber', this.state.phoneNumber);
         formData.append('email', this.state.email);
 
-        this.props.dispatch(actions.createRent(formData));
+        this.props.dispatch(actions.editRent(formData, this.props.auth.user.userId, this.state.id));
     }
 
     setFile = event => {
@@ -74,7 +99,7 @@ class RentRegister extends React.Component {
         return (
             <div className="register">
                 <form onSubmit={this.handleSubmit} className="register-form">
-                    <h3 className="register-form__heading">Rent Registration</h3>
+                    <h3 className="register-form__heading">Rent Edit</h3>
                     <label className="register-form__label">Property Type: </label>
                     <input className="register-form__input"
                         type="text"
@@ -157,7 +182,7 @@ class RentRegister extends React.Component {
                         multiple
                     />
     
-                <button className="button button--primary" type="submit">Submit</button>
+                <button class="button button--primary" type="submit">Submit</button>
 
                 </form>
             </div>
@@ -172,4 +197,4 @@ function mapStateToProps(state) {
     }
 }
 
-export default connect(mapStateToProps)(RentRegister);
+export default connect(mapStateToProps)(RentEdit);

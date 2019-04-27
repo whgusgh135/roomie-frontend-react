@@ -11,7 +11,10 @@ export class Home extends React.Component {
     componentDidMount() {
         this.props.dispatch(roomieAction.selectRoomies(3));
         this.props.dispatch(rentAction.selectRent(6));
-        this.props.dispatch(statusAction.setRedirect(""));
+        if(this.props.status.redirect == "home") {
+            window.location.reload();
+            this.props.dispatch(statusAction.setRedirect(""));
+        } 
     }
 
     renderRoomieBox() {
@@ -81,7 +84,8 @@ export class Home extends React.Component {
 function mapStateToProps(state) {
     return {
         roomie: state.roomieReducer,
-        rent: state.rentReducer
+        rent: state.rentReducer,
+        status: state.statusReducer
     }
 }
 
