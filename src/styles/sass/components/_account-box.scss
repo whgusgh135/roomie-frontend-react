@@ -1,9 +1,60 @@
 .account-box {
     border: 1px solid $color-grey-light-2;
     border-radius: .2rem;
-    width: 98%;
+    width: 31%;
     background-color: $color-white; 
-    padding: 3rem;
-    margin: 1%;
+    
     font-size: 1.2rem;
+    line-height: 1.8rem;
+
+    margin: 1.1666%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    &__img {
+        padding: 3rem;
+        width: 100%;
+        height: 100%;
+        transition: all .5s;
+        cursor: pointer;
+    }
+
+    &__caption {
+        position: absolute;
+        padding-top: 5rem;
+
+        text-align: center;
+        color: $color-white;
+        opacity: 0;
+        transition: all .5s;
+
+        &--edit {
+            font-size: 2rem;
+            margin-top: 1rem;
+        }
+    }
+
+    &:hover &__img {
+        filter: blur(2px) brightness(50%);
+        background-color: $color-grey;
+    }
+
+    &:hover &__caption {
+        opacity: 1;
+    }
+
+    @include respond(tab-port) {
+        width: 46%;
+        margin: 2%;
+    }
+    @include respond(phone) {
+        width: 70%;
+        margin-bottom: .5rem;
+    }
+    @include respond(mini) {
+        width: 95%;
+    }
 }

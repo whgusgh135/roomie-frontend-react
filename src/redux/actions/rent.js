@@ -73,6 +73,26 @@ export const editRent = (userData, userId, rentId) => {
     }
 }
 
+export const deleteRent = (userId, rentId) => {
+    return dispatch => {
+        return new Promise((resolve, reject) => {
+            return axios.delete(`/api/rent/${userId}/${rentId}`)
+                .then(res => res.data)
+                .then(({token, ...user}) => {
+                    setAuthorizationToken(token);
+                    sessionStorage.setItem("jwtToken", token);
+                    dispatch(setCurrentUser(user));
+                    dispatch(setRedirect("home"));
+                    resolve();
+                })
+                .catch(error => {
+                    dispatch(setError(error.response.data.error));
+                    reject();
+                })
+        })
+    }
+}
+
 export const searchRentsByRegion = (region) => {
     return dispatch => {
         return new Promise((resolve, reject) => {

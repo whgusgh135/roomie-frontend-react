@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { RentBox } from './RentBox';
 import RentSearch from './RentSearch';
 import * as actions from '../../redux/actions/rent';
+import { setPage } from '../../redux/actions/status';
 
 class Rent extends React.Component {
     constructor(props) {
@@ -15,6 +16,7 @@ class Rent extends React.Component {
     
     componentDidMount() {
         this.props.dispatch(actions.selectRent(this.state.items));
+        this.props.dispatch(setPage("rent"));
     }
 
     renderRentBox() {
@@ -33,6 +35,12 @@ class Rent extends React.Component {
         }
     }
 
+    getMoreRent = () => {
+        let newNum = this.state.items + 6;
+        this.setState({items: newNum});
+        this.props.dispatch(actions.selectRent(newNum));
+    }
+
     render() {       
         return (
             <main className="home">
@@ -43,7 +51,7 @@ class Rent extends React.Component {
                 </div>
 
                 <div className="home-list--more">
-                    <button className="button button--more">+ Find more</button>
+                    <button className="button button--more" onClick={this.getMoreRent}>+ Find more</button>
                 </div>
 
             </main>

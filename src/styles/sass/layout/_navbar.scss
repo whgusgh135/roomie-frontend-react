@@ -8,4 +8,11 @@
     position: fixed;
     height: 6rem;
     width: 100vw;
+
+    @include respond(phone) {
+        justify-content: flex-end;
+    }
+    @include respond(mini) {
+        display: none;
+    }
 }

@@ -1,10 +1,11 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 import * as actions from '../../redux/actions/auth';
+import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 import { setError } from '../../redux/actions/status';
+import { Link } from 'react-router-dom';
 
-class NavbarLogin extends React.Component {
+class UserLogin extends React.Component {
     constructor() {
         super();
         this.state = {
@@ -28,34 +29,36 @@ class NavbarLogin extends React.Component {
 
     render() {
         const { id, password } = this.state;
-    
+
+        if(this.props.auth.isAuthenticated) {
+            return <Redirect to="/" />
+        }
+
         return (
-            <div className="nav-items__auth">
-                <form onSubmit={this.handleSubmit} >
-                    <label>ID: </label>
-                    <input 
-                        className="input--login"
+            <div className="register">
+                <form onSubmit={this.handleSubmit} className="register-form">
+                <h3 className="register-form__heading">User Login</h3>
+                    <label className="register-form__label">ID: </label>
+                    <input className="register-form__input" 
                         type="text"
                         name="id"
                         value={id}
                         onChange={this.handleChange}
                         required
                     />
-                    <label>Password: </label>
-                    <input 
-                        className="input--login"
+                    <label className="register-form__label">Password: </label>
+                    <input className="register-form__input" 
                         type="password"
                         name="password"
                         value={password}
                         onChange={this.handleChange}
                         required
                     />
-                <button className="button button--login" type="submit">Login</button>
-                
+                <button class="button button--primary" type="submit">Login</button>
+
+                <Link to="userregister" class="button button--primary">Register</Link>
+
                 </form>
-                <button className="button button--login" type="submit">
-                    <Link to="/userregister">Register</Link>
-                </button>
             </div>
         )
     }
@@ -67,4 +70,4 @@ function mapStateToProps(state) {
     }
 }
 
-export default connect(mapStateToProps)(NavbarLogin);
+export default connect(mapStateToProps)(UserLogin);

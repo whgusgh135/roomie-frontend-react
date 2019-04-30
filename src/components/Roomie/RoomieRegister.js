@@ -75,6 +75,7 @@ class RoomieRegister extends React.Component {
                     <textarea className="register-form__textarea"
                         type="text"
                         name="description"
+                        maxlength="70"
                         value={description}
                         onChange={this.handleChange}
                     />

@@ -11,6 +11,7 @@ export class Home extends React.Component {
     componentDidMount() {
         this.props.dispatch(roomieAction.selectRoomies(3));
         this.props.dispatch(rentAction.selectRent(6));
+        this.props.dispatch(statusAction.setPage("home"));
         if(this.props.status.redirect == "home") {
             window.location.reload();
             this.props.dispatch(statusAction.setRedirect(""));

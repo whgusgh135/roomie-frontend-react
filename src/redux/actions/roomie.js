@@ -84,13 +84,13 @@ export const createRoomie = userData => {
     }
 }
 
-export const editRoomie = (userData, id) => {
+export const editRoomie = (userData, userId) => {
     return dispatch => {
         return new Promise((resolve, reject) => {
             const config = {     
                 headers: { 'content-type': 'multipart/form-data' }
             }
-            return axios.put(`/api/roomie/${id}`, userData, config)
+            return axios.put(`/api/roomie/${userId}`, userData, config)
                 .then(res => res.data)
                 .then(({token, ...user}) => {
                     setAuthorizationToken(token);
@@ -101,6 +101,26 @@ export const editRoomie = (userData, id) => {
                 })
                 .catch(error => {
                     dispatch(setError(error.response.data.error));
+                    reject();
+                })
+        })
+    }
+}
+
+export const deleteRoomie = userId => {
+    return dispatch => {
+        return new Promise((resolve, reject) => {
+            return axios.delete(`/api/roomie/${userId}`)
+                .then(res => res.data)
+                .then(({token, ...user}) => {
+                    setAuthorizationToken(token);
+                    sessionStorage.setItem("jwtToken", token);
+                    dispatch(setCurrentUser(user));
+                    dispatch(setRedirect("home"));
+                    resolve();
+                })
+                .catch(error => {
+                    dispatch(setError(error));
                     reject();
                 })
         })

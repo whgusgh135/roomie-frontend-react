@@ -38,7 +38,7 @@ button {
   height: 4.5rem;
   width: 4.5rem;
   margin-left: 2rem; }
-  @media only screen and (max-width: 31.25em) {
+  @media only screen and (max-width: 43.75em) {
     .nav-items__logo {
       display: none; } }
 
@@ -79,7 +79,7 @@ button {
     @media only screen and (max-width: 56.25em) {
       .side-items__profile-info {
         font-size: 1.6rem; } }
-    @media only screen and (max-width: 43.75em) {
+    @media only screen and (max-width: 31.25em) {
       .side-items__profile-info {
         font-size: 1.2rem; } }
   .side-items__profile-img {
@@ -106,9 +106,21 @@ button {
       .side-items__item {
         font-size: 1.2rem;
         padding: 1.6rem 0 1.6rem 0; } }
-    @media only screen and (max-width: 43.75em) {
+    @media only screen and (max-width: 31.25em) {
       .side-items__item {
         font-size: 1rem; } }
+    .side-items__item--active {
+      list-style: none;
+      font-size: 1.6rem;
+      padding: 2rem 0 2rem 0;
+      background: #E91E63; }
+      @media only screen and (max-width: 56.25em) {
+        .side-items__item--active {
+          font-size: 1.2rem;
+          padding: 1.6rem 0 1.6rem 0; } }
+      @media only screen and (max-width: 31.25em) {
+        .side-items__item--active {
+          font-size: 1rem; } }
   .side-items__link {
     text-decoration: none;
     text-transform: uppercase;
@@ -125,10 +137,6 @@ button {
   flex-direction: column;
   align-items: center;
   text-align: center; }
-  @media only screen and (max-width: 56.25em) {
-    .roomie-box {
-      width: 46%;
-      margin: 2%; } }
   @media only screen and (max-width: 43.75em) {
     .roomie-box {
       width: 70%;
@@ -150,6 +158,7 @@ button {
 .button {
   background-color: #C2185B;
   color: #F5F5F5;
+  text-align: center;
   cursor: pointer;
   transition: all .3s; }
   .button:hover {
@@ -248,6 +257,10 @@ button {
   margin-top: 8rem;
   display: flex;
   flex-direction: column; }
+  @media only screen and (max-width: 31.25em) {
+    .register-form {
+      width: 20rem;
+      margin-top: 2rem; } }
   .register-form__heading {
     font-size: 2rem;
     margin-bottom: 4rem;
@@ -316,11 +329,47 @@ button {
 .account-box {
   border: 1px solid #EBEBEB;
   border-radius: .2rem;
-  width: 98%;
+  width: 31%;
   background-color: #ffffff;
-  padding: 3rem;
-  margin: 1%;
-  font-size: 1.2rem; }
+  font-size: 1.2rem;
+  line-height: 1.8rem;
+  margin: 1.1666%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center; }
+  .account-box__img {
+    padding: 3rem;
+    width: 100%;
+    height: 100%;
+    transition: all .5s;
+    cursor: pointer; }
+  .account-box__caption {
+    position: absolute;
+    padding-top: 5rem;
+    text-align: center;
+    color: #ffffff;
+    opacity: 0;
+    transition: all .5s; }
+    .account-box__caption--edit {
+      font-size: 2rem;
+      margin-top: 1rem; }
+  .account-box:hover .account-box__img {
+    filter: blur(2px) brightness(50%);
+    background-color: #999999; }
+  .account-box:hover .account-box__caption {
+    opacity: 1; }
+  @media only screen and (max-width: 56.25em) {
+    .account-box {
+      width: 46%;
+      margin: 2%; } }
+  @media only screen and (max-width: 43.75em) {
+    .account-box {
+      width: 70%;
+      margin-bottom: .5rem; } }
+  @media only screen and (max-width: 31.25em) {
+    .account-box {
+      width: 95%; } }
 
 .navbar {
   background-color: white;
@@ -330,6 +379,12 @@ button {
   position: fixed;
   height: 6rem;
   width: 100vw; }
+  @media only screen and (max-width: 43.75em) {
+    .navbar {
+      justify-content: flex-end; } }
+  @media only screen and (max-width: 31.25em) {
+    .navbar {
+      display: none; } }
 
 .sidebar {
   background-color: #363636;
@@ -347,9 +402,10 @@ button {
   @media only screen and (max-width: 56.25em) {
     .sidebar {
       width: 15rem; } }
-  @media only screen and (max-width: 43.75em) {
+  @media only screen and (max-width: 31.25em) {
     .sidebar {
-      width: 10rem; } }
+      width: 10rem;
+      margin-top: 0; } }
 
 .home-list {
   grid-column: center-start / center-end;
@@ -429,6 +485,9 @@ button {
   @media only screen and (max-width: 43.75em) {
     .home {
       margin-left: 10rem; } }
+  @media only screen and (max-width: 31.25em) {
+    .home {
+      padding-top: 0; } }
 
 .register {
   background-color: #F5F5F5;
@@ -446,3 +505,6 @@ button {
   @media only screen and (max-width: 43.75em) {
     .register {
       margin-left: 10rem; } }
+  @media only screen and (max-width: 31.25em) {
+    .register {
+      padding-top: 0rem; } }

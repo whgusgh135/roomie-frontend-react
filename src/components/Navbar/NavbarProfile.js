@@ -19,10 +19,10 @@ export class NavbarProfile extends React.Component {
         return (
             <div>
                 {(this.props.auth.user.roomie.name) ? (
-                    <a href="#" className="nav-items__profile">
+                    <Link to="/my account" className="nav-items__profile">
                         <img src={this.state.profileImage} alt="profile" className="nav-items__profile--img" />
                         <p className="nav-items__profile--name">{this.props.auth.user.firstName} {this.props.auth.user.lastName}</p>
-                    </a>
+                    </Link>
                 ) : (
                     <Link to="/roomieregister" className="nav-items__roomieRegister">Become a Roomie</Link>
                 )}  

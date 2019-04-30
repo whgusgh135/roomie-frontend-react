@@ -2,13 +2,18 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { MyAccountRentBox } from './MyAccountRentBox';
+import { setPage } from '../../redux/actions/status';
 
 class MyAccount extends React.Component {
+
+    componentDidMount() {
+        this.props.dispatch(setPage("my account"));
+    }
 
     renderRoomieDetail() {
         if(this.props.auth.user.roomie.name) {
             return(
-                <div>
+                <div className="account-box__img">
                     <p>
                         <b>Name: </b>{this.props.auth.user.roomie.name}
                     </p>
@@ -25,8 +30,10 @@ class MyAccount extends React.Component {
             )
         } else {
             return (
-                <div>
-                    You have not registered as a roomie yet.
+                <div className="account-box__img">
+                    You have not registered yet.<br></br>
+                    Register now to <br></br>
+                    become a roomie!
                 </div>
             )
         }
@@ -43,6 +50,21 @@ class MyAccount extends React.Component {
             )
         }
     }
+    renderFigcaption() {
+        if(this.props.auth.user.roomie.name) {
+            return(
+                <figcaption className="account-box__caption">
+                    <p className="account-box__caption--edit">Click to Edit</p>
+                </figcaption>
+            )
+        } else {
+            return (
+                <figcaption className="account-box__caption">
+                    <p className="account-box__caption--edit">Register</p>
+                </figcaption>
+            )
+        }
+    }
 
     renderRentBox() {
         if(this.props.auth.user.rent && this.props.auth.user.rent.length) {
@@ -55,7 +77,13 @@ class MyAccount extends React.Component {
             )
         } else {
             return (
-                <p className="search-container__message">No result</p>
+                <div className="account-box">
+                    <div className="account-box__img">
+                        No rent detail.<br></br>
+                        Click here to <br></br>
+                        list your property!
+                    </div>
+                </div>
             )
         }
     }
@@ -71,6 +99,7 @@ class MyAccount extends React.Component {
                 <div className="home-list">
                     <div className="account-box">
                         {this.renderRoomieDetail()}
+                        {this.renderFigcaption()}
                     </div>
                 </div>
 
