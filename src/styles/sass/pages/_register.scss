@@ -16,4 +16,7 @@
     @include respond(phone) {
         margin-left: 10rem;
     }
+    @include respond(mini) {
+        padding-top: 0rem;
+    }
 }

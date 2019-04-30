@@ -9,6 +9,7 @@ import Sidebar from './components/Sidebar/Sidebar';
 
 import UserRegister from './components/User/UserRegister';
 import UserPasswordChange from './components/User/UserPasswordChange';
+import UserLogin from './components/User/UserLogin';
 import MyAccount from './components/User/MyAccount';
 
 import Roomie from './components/Roomie/Roomie';
@@ -42,14 +43,18 @@ class App extends Component {
 
               <Route exact path="/" render={() => <Redirect to="/home" />} />
               <Route exact path="/home" component={Home} />
-              <Route exact path="/userregister" component={UserRegister} />
-              <Route exact path="/userchangepassword" component={withAuth(UserPasswordChange)} />
+
               <Route exact path="/roomieregister" component={withAuth(RoomieRegister)} />
               <Route exact path="/roomieedit" component={withAuth(RoomieEdit)} />
               <Route exact path="/roomie" component={Roomie} />
+
               <Route exact path="/rentregister" component={withAuth(RentRegister)} />
               <Route exact path="/rentedit/:id" component={withAuth(RentEdit)} />
               <Route exact path="/rent" component={Rent} />
+
+              <Route exact path="/userlogin" component={UserLogin} />
+              <Route exact path="/userregister" component={UserRegister} />
+              <Route exact path="/userchangepassword" component={withAuth(UserPasswordChange)} />
               <Route exact path="/my account" component={withAuth(MyAccount)} />
 
           </div>

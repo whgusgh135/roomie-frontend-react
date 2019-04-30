@@ -72,6 +72,10 @@ class RentEdit extends React.Component {
         this.props.dispatch(actions.editRent(formData, this.props.auth.user.userId, this.state.id));
     }
 
+    handleDelete = () => {
+        this.props.dispatch(actions.deleteRent(this.props.auth.user.userId, this.state.id));
+    }
+
     setFile = event => {
         let rentImages = [];
         for(let i = 0; i < event.target.files.length; i++) {
@@ -182,9 +186,11 @@ class RentEdit extends React.Component {
                         multiple
                     />
     
-                <button class="button button--primary" type="submit">Submit</button>
+                <button className="button button--primary" type="submit">Submit</button>
 
                 </form>
+
+                <button className="button button--primary" onClick={this.handleDelete}>Delete</button>
             </div>
         )
     }

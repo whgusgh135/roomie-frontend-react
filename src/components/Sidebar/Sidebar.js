@@ -13,14 +13,14 @@ class Sidebar extends React.Component {
     }
 
     renderSidebarItems() {
-        let sidebarItem = ["Home", "Roomie", "Rent"];
+        let sidebarItem = ["home", "roomie", "rent"];
         if(this.props.auth.isAuthenticated) {
-            sidebarItem.unshift("My account");
+            sidebarItem.unshift("my account");
         } 
         return (
             sidebarItem.map(item => {
                 return (
-                    <SidebarItem item = {item}/>
+                    <SidebarItem item = {item} status={this.props.status}/>
                 )
             })
         )
@@ -31,7 +31,7 @@ class Sidebar extends React.Component {
             return <SidebarProfile auth={this.props.auth} />
         } else {
             return (
-                <Link to="/userregister">
+                <Link to="/userlogin">
                     <p className="side-items side-items__profile-info">Login or Register</p>
                     <img src={defaultProfile} alt="profile" className="side-items side-items__profile-img" />
                 </Link>
@@ -72,7 +72,8 @@ class Sidebar extends React.Component {
 
 function mapStateToProps(state) {
     return {
-        auth: state.authReducer
+        auth: state.authReducer,
+        status: state.statusReducer
     }
 }
 

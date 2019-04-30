@@ -4,6 +4,7 @@ import { RoomieBox } from './RoomieBox';
 import RoomieSearch from './RoomieSearch';
 import { RoomieDetail } from './RoomieDetail';
 import * as actions from '../../redux/actions/roomie';
+import { setPage } from '../../redux/actions/status';
 
 class Roomie extends React.Component {
     constructor(props) {
@@ -16,6 +17,7 @@ class Roomie extends React.Component {
     
     componentDidMount() {
         this.props.dispatch(actions.selectRoomies(this.state.items));
+        this.props.dispatch(setPage("roomie"));
     }
 
     renderRoomieBox() {
@@ -34,6 +36,12 @@ class Roomie extends React.Component {
         }
     }
 
+    getMoreRoomie = () => {
+        let newNum = this.state.items + 6;
+        this.setState({items: newNum});
+        this.props.dispatch(actions.selectRoomies(newNum));
+    }
+
     render() {       
         return (
             <main className="home">
@@ -45,7 +53,7 @@ class Roomie extends React.Component {
                 </div>
 
                 <div className="home-list--more">
-                    <button className="button button--more">+ Find more</button>
+                    <button className="button button--more" onClick={this.getMoreRoomie}>+ Find more</button>
                 </div>
             </main>
         )
