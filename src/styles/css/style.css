@@ -154,6 +154,20 @@ button {
     padding-top: 1rem; }
   .roomie-box__address {
     color: #363636; }
+  .roomie-box__form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 3rem; }
+  .roomie-box__form-title {
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+    text-align: center; }
+  .roomie-box__message-box {
+    min-height: 7rem;
+    width: 20rem;
+    margin-bottom: 1rem;
+    align-self: center; }
 
 .button {
   background-color: #C2185B;
@@ -325,6 +339,23 @@ button {
     width: 100%;
     max-height: 100%;
     object-fit: cover; }
+  .popup__roomie-content {
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center; }
+    .popup__roomie-content--name {
+      font-size: 2rem;
+      font-weight: bold; }
+    .popup__roomie-content--region {
+      font-size: 1.6rem; }
+    .popup__roomie-content--budget {
+      font-size: 1.4rem; }
+    .popup__roomie-content--desc {
+      font-size: 1.2rem;
+      font-style: italic;
+      margin: 1rem; }
 
 .account-box {
   border: 1px solid #EBEBEB;

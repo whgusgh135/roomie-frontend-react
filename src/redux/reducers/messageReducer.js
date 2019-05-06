@@ -1,7 +1,7 @@
 import { GET_MESSAGES } from '../actionTypes';
 
 const INITIAL_STATE = {
-    message: []
+    messages: []
 }
 
 export const messageReducer = (state = INITIAL_STATE, action) => {
@@ -9,7 +9,7 @@ export const messageReducer = (state = INITIAL_STATE, action) => {
         case GET_MESSAGES:
             return {
                 ...state,
-                messages: action.message
+                messages: action.messages
             };
         default:
             return state;

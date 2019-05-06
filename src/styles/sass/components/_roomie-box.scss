@@ -38,5 +38,25 @@
 
     &__address {
         color: $color-grey-dark;
-    } 
+    }
+
+    &__form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-top: 3rem;
+    }
+
+    &__form-title {
+        font-size: 1.6rem;
+        margin-bottom: 1rem;
+        text-align: center;
+    }
+
+    &__message-box {
+        min-height: 7rem;
+        width: 20rem;
+        margin-bottom: 1rem;
+        align-self: center;
+    }
 }
