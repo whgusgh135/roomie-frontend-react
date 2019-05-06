@@ -29,7 +29,7 @@ export class Home extends React.Component {
             return ( 
                 this.props.roomie.roomies.map(roomie => {
                     return (
-                        <RoomieBox roomie={roomie} />
+                        <RoomieBox roomie={roomie} auth={this.props.auth}/>
                     )
                 })
             )
@@ -86,7 +86,8 @@ function mapStateToProps(state) {
     return {
         roomie: state.roomieReducer,
         rent: state.rentReducer,
-        status: state.statusReducer
+        status: state.statusReducer,
+        auth: state.authReducer
     }
 }
 

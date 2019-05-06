@@ -18,6 +18,7 @@ export class RoomieBox extends React.Component {
             return (
                 <RoomieDetail 
                     roomie={this.props.roomie}
+                    auth={this.props.auth}
                     renderPopup={this.renderPopup}
                 />
             )

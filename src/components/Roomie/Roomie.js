@@ -25,7 +25,7 @@ class Roomie extends React.Component {
             return (
                 this.props.roomie.roomies.map(roomie => {
                     return (
-                        <RoomieBox roomie={roomie} />
+                        <RoomieBox roomie={roomie} auth={this.props.auth} />
                     )
                 })
             )

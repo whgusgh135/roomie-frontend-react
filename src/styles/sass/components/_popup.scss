@@ -33,4 +33,28 @@
         max-height: 100%;
         object-fit: cover;
     }
+
+    &__roomie-content {
+        width: 40%;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        
+        &--name {
+            font-size: 2rem;
+            font-weight: bold;
+        }
+        &--region {
+            font-size: 1.6rem;
+        }
+        &--budget {
+            font-size: 1.4rem;
+        }
+        &--desc {
+            font-size: 1.2rem;
+            font-style: italic;
+            margin: 1rem;
+        }
+    }
 }
