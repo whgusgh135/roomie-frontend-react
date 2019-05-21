@@ -2,7 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import * as actions from '../../redux/actions/auth';
-import { setError } from '../../redux/actions/status';
 
 class NavbarLogin extends React.Component {
     constructor() {

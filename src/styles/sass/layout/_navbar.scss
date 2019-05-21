@@ -6,8 +6,9 @@
     justify-content: space-between;
     
     position: fixed;
-    height: 6rem;
+    height: 5rem;
     width: 100vw;
+    z-index: 100;
 
     @include respond(phone) {
         justify-content: flex-end;

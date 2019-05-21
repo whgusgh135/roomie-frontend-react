@@ -34,8 +34,11 @@ class RoomieEdit extends React.Component {
         this.props.dispatch(actions.editRoomie(formData, this.state.userId));
     }
 
-    handleDelete = () => {
-        this.props.dispatch(actions.deleteRoomie(this.state.userId));
+    handleDelete = event => {
+        event.preventDefault();
+        if(window.confirm("Do you really want to delete your roomie detail?")) {
+            this.props.dispatch(actions.deleteRoomie(this.state.userId));
+        };
     }
 
     setFile = event => {
@@ -52,7 +55,9 @@ class RoomieEdit extends React.Component {
         return (
             <div className="register">
                 <form onSubmit={this.handleSubmit} className="register-form">
-                    <h3 className="register-form__heading">Roomie Detail</h3>  
+                    <h3 className="register-form__heading">Roomie Detail</h3> 
+                <button className="button button--delete" onClick={this.handleDelete}>Delete</button>
+                    
                     <label className="register-form__label">Region: </label>
                     <input className="register-form__input" 
                         type="text"
@@ -93,9 +98,6 @@ class RoomieEdit extends React.Component {
                 <button className="button button--primary" type="submit">Save Changes</button>
 
                 </form>
-
-                <button className="button button--primary" onClick={this.handleDelete}>Delete My Roomie Detail</button>
-                
             </div>
         )
     }

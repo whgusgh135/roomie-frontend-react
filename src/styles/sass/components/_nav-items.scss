@@ -1,5 +1,5 @@
 .nav-items {
-    
+
     &__logo {
         height: 4.5rem;
         width: 4.5rem;
@@ -10,16 +10,59 @@
         }
     }
 
+    &__right-side {
+        display: flex;
+        flex-direction: row; 
+    }
+
+    &__line {
+        align-items: center;
+        display: flex;
+        align-items: center;
+        font-size: 1.4rem;
+        color: $color-grey;
+        opacity: .5;
+    }
+
+    &__message {
+        text-decoration: none;
+        color: $color-grey-dark;
+        display: flex;
+        align-items: center;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        cursor: pointer;
+
+        &--unread {
+            font-size: .7rem;
+            color: $color-white;
+            border-radius: 50%;
+            background-color: $color-primary;
+            padding: .2rem;
+            margin-left: .6rem;
+            height: 1.1rem;
+            width: 1.1rem;
+            text-align: center;
+        }
+
+        &:hover {
+            background-color: $color-grey-light;
+        }
+    }
+
     &__profile {
         text-decoration: none;
         color: $color-grey-dark;
         display: flex;
         align-items: center;
-        padding-left: 2rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        margin-right: 1rem;
+        height: 3.5rem;
         
         &--img {
-            height: 4.5rem;
-            width: 4.5rem;
+            height: 3rem;
+            width: 3rem;
             border-radius: 50px;
             border: 1px $color-grey-light solid;
             object-fit: cover;
@@ -36,10 +79,19 @@
 
     &__auth {
         display: flex;
+        padding-left: 2rem;
+        padding-right: 1rem;
+        margin-right: 1rem;
     }
 
     &__roomieRegister {
         padding: 3rem;
+        display: flex;
+        align-items: center;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        margin-right: 1rem;
+        height: 3.5rem;
 
         &:hover {
             background-color: $color-grey-light;

@@ -4,6 +4,7 @@ import { Provider } from 'react-redux';
 import { configureStore } from './redux/reducer';
 
 import Home from './components/Home/Home';
+import Status from './components/Home/Status';
 import Navbar from './components/Navbar/Navbar';
 import Sidebar from './components/Sidebar/Sidebar';
 
@@ -11,6 +12,7 @@ import UserRegister from './components/User/UserRegister';
 import UserPasswordChange from './components/User/UserPasswordChange';
 import UserLogin from './components/User/UserLogin';
 import MyAccount from './components/User/MyAccount';
+import Messages from './components/User/Messages';
 
 import Roomie from './components/Roomie/Roomie';
 import RoomieEdit from './components/Roomie/RoomieEdit'
@@ -41,6 +43,8 @@ class App extends Component {
               
               <Sidebar />
 
+              <Status />
+
               <Route exact path="/" render={() => <Redirect to="/home" />} />
               <Route exact path="/home" component={Home} />
 
@@ -56,6 +60,7 @@ class App extends Component {
               <Route exact path="/userregister" component={UserRegister} />
               <Route exact path="/userchangepassword" component={withAuth(UserPasswordChange)} />
               <Route exact path="/my account" component={withAuth(MyAccount)} />
+              <Route exact path="/messages" component={Messages} />
 
           </div>
         </BrowserRouter>

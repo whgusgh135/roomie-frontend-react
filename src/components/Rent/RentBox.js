@@ -1,9 +1,6 @@
 import React from 'react';
 import { RentDetail } from './RentDetail';
 
-// replace this later with data
-import rentImage from '../../styles/img/flat-1.jpg'
-
 export class RentBox extends React.Component {
     constructor(props){
         super(props);
@@ -20,7 +17,7 @@ export class RentBox extends React.Component {
         if(this.state.popup){
             return (
                 <RentDetail 
-                    auth={this.props.rent}
+                    rent={this.props.rent}
                     renderPopup={this.renderPopup}
                 />
             )

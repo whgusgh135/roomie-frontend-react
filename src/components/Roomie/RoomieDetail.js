@@ -1,7 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import * as actions from '../../redux/actions/message';
+import { Redirect } from 'react-router-dom';
 
-export class RoomieDetail extends React.Component {
+class RoomieDetail extends React.Component {
     constructor(props){
         super(props);
         this.state = {
@@ -24,6 +27,8 @@ export class RoomieDetail extends React.Component {
 
     handleSubmit = event => {
         event.preventDefault();
+        this.props.dispatch(actions.sendMessage(this.state));
+        this.props.renderPopup();
     }
 
     renderMessage = () => {
@@ -52,7 +57,6 @@ export class RoomieDetail extends React.Component {
                     <textarea className="roomie-box__message-box"
                         type="text"
                         name="message"
-                        value={this.state.message}
                         onChange={this.handleChange}
                         value="Please log in to send message"
                         disabled
@@ -66,6 +70,10 @@ export class RoomieDetail extends React.Component {
     }
 
     render() {
+        if(this.props.status.redirect === "home") {
+            return <Redirect to="/home" />
+        } 
+
         return (
             <div>
                 <div className="popup" onClick={this.props.renderPopup}>
@@ -93,3 +101,11 @@ export class RoomieDetail extends React.Component {
     }
 
 }
+
+function mapStateToProps(state) {
+    return {
+        status: state.statusReducer
+    }
+}
+
+export default connect(mapStateToProps)(RoomieDetail);

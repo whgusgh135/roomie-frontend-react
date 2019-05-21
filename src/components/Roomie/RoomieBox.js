@@ -1,5 +1,5 @@
 import React from 'react';
-import { RoomieDetail } from './RoomieDetail';
+import RoomieDetail from './RoomieDetail';
 
 export class RoomieBox extends React.Component {
     constructor(props) {

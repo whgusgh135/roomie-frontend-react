@@ -1,7 +1,8 @@
-import { GET_ROOMIES } from '../actionTypes';
+import { GET_ROOMIES, GET_ROOMIE } from '../actionTypes';
 
 const INITIAL_STATE = {
-    roomies: {}
+    roomies: {},
+    selectedRoomie: {}
 }
 
 export const roomieReducer = (state = INITIAL_STATE, action) => {
@@ -11,6 +12,11 @@ export const roomieReducer = (state = INITIAL_STATE, action) => {
                 ...state,
                 roomies: action.roomies
             };
+        case GET_ROOMIE: 
+            return {
+                ...state,
+                selectedRoomie: action.selectedRoomie
+            }
         default:
             return state;
     }

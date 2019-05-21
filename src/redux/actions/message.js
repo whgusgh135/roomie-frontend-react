@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { setError } from './status';
+import { setError, setStatus } from './status';
 import { GET_MESSAGES } from '../actionTypes';
 
 export const getMessages = messages => {
@@ -32,10 +32,35 @@ export const sendMessage = (msg) => {
             return axios.post("api/message", msg)
                 .then(res => res.data)
                 .then(() => {
+                    dispatch(setStatus("Message succesfully sent!"));
+                    setTimeout(function(){
+                        dispatch(setStatus(""));
+                    }, 5000);
                     resolve();
                 })
                 .catch(error => {
                     dispatch(setError(error.response.data.error));
+                    reject();
+                })
+        })
+    }
+}
+
+export const deleteMessage = (userId, msgId) => {
+    return dispatch => {
+        return new Promise((resolve, reject) => {
+            return axios.delete(`/api/message/${userId}/${msgId}`)
+                .then(res => res.data)
+                .then(messages => {
+                    dispatch(getMessages(messages));
+                    dispatch(setStatus("Message deleted!"));
+                    setTimeout(function(){
+                        dispatch(setStatus(""));
+                    }, 5000);
+                    resolve();
+                })
+                .catch(error => {
+                    dispatch(setError(error));
                     reject();
                 })
         })

@@ -57,7 +57,7 @@ class RentSearch extends React.Component {
                     onChange={this.handleChange}
                     required
                 >
-                    <option value="" disabled selected>Select the No. of Residents</option>
+                    <option value="" disabled defaultValue>Select the No. of Residents</option>
                     <option value="1">1 resident allowed</option>
                     <option value="2">2 resident allowed</option>
                     <option value="3">3 resident allowed</option>

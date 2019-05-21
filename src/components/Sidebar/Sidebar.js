@@ -18,9 +18,9 @@ class Sidebar extends React.Component {
             sidebarItem.unshift("my account");
         } 
         return (
-            sidebarItem.map(item => {
+            sidebarItem.map((item, index) => {
                 return (
-                    <SidebarItem item = {item} status={this.props.status}/>
+                    <SidebarItem item = {item} status={this.props.status} key={index}/>
                 )
             })
         )
