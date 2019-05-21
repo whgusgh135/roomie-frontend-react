@@ -75,7 +75,7 @@ class RoomieRegister extends React.Component {
                     <textarea className="register-form__textarea"
                         type="text"
                         name="description"
-                        maxlength="70"
+                        maxLength="70"
                         value={description}
                         onChange={this.handleChange}
                     />
@@ -85,7 +85,7 @@ class RoomieRegister extends React.Component {
                         onChange={this.setFile}
                         accept="image/png, image/jpeg"
                     />
-                <button class="button button--primary" type="submit">Submit</button>
+                <button className="button button--primary" type="submit">Submit</button>
 
                 </form>
             </div>

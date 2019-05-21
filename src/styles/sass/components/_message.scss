@@ -1,0 +1,58 @@
+.message {
+    margin-left: 28rem;
+
+    @include respond(tab-land) {
+        margin-left: 23rem;
+    }
+    @include respond(tab-port) {
+        margin-left: 18rem;
+    }
+    
+    @include respond(mini) {
+        padding-top: 0;
+    }
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border: 1px solid $color-grey;
+    background-color: $color-grey-light;
+    padding: 1.5rem;
+    margin-right: 3rem;
+    margin-top: 2rem;
+
+    &--read {
+        background-color: $color-white;
+    }
+
+    &__content {
+        display: flex;
+    }
+
+    &__text {
+
+    }
+
+    &__reply {
+        margin-left: .5rem;
+        cursor: pointer;
+
+        &:hover {
+            background-color: $color-primary-light;
+        }
+    }
+
+    &__delete {
+        margin-left: .5rem;
+        cursor: pointer;
+
+        &:hover {
+            background-color: $color-primary-light;
+        }
+    }
+
+    &__date {
+        margin-left: .5rem;
+        width: 6rem;
+    }
+}

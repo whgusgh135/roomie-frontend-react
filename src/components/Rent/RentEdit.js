@@ -26,9 +26,9 @@ class RentEdit extends React.Component {
     componentDidMount() {
         const { id } = this.props.match.params;
 
-        let index = this.props.auth.user.rent.findIndex(rent => rent._id == id);
+        let index = this.props.auth.user.rent.findIndex(rent => rent._id === id);
 
-        if(index == -1) {
+        if(index === -1) {
             this.props.dispatch(setRedirect("home"));
         } else {
             this.setState({
@@ -72,8 +72,11 @@ class RentEdit extends React.Component {
         this.props.dispatch(actions.editRent(formData, this.props.auth.user.userId, this.state.id));
     }
 
-    handleDelete = () => {
-        this.props.dispatch(actions.deleteRent(this.props.auth.user.userId, this.state.id));
+    handleDelete = event => {
+        event.preventDefault();
+        if(window.confirm("Do you really want to delete your roomie detail?")) {
+            this.props.dispatch(actions.deleteRent(this.props.auth.user.userId, this.state.id));
+        };
     }
 
     setFile = event => {
@@ -95,7 +98,7 @@ class RentEdit extends React.Component {
                 email,
                 description } = this.state;
 
-        if(this.props.status.redirect == "home" ||
+        if(this.props.status.redirect === "home" ||
             !this.props.auth.isAuthenticated) {
             return <Redirect to="/home" />
         }
@@ -104,6 +107,7 @@ class RentEdit extends React.Component {
             <div className="register">
                 <form onSubmit={this.handleSubmit} className="register-form">
                     <h3 className="register-form__heading">Rent Edit</h3>
+                    <button className="button button--delete" onClick={this.handleDelete}>Delete</button>
                     <label className="register-form__label">Property Type: </label>
                     <input className="register-form__input"
                         type="text"
@@ -143,7 +147,7 @@ class RentEdit extends React.Component {
                         onChange={this.handleChange}
                         required
                     >
-                        <option value="1" selected>1</option>
+                        <option value="1" defaultValue>1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
                         <option value="4">4</option>
@@ -190,7 +194,6 @@ class RentEdit extends React.Component {
 
                 </form>
 
-                <button className="button button--primary" onClick={this.handleDelete}>Delete</button>
             </div>
         )
     }

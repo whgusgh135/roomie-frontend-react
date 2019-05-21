@@ -1,9 +1,10 @@
-import { SET_ERROR, SET_REDIRECT, SET_PAGE } from '../actionTypes';
+import { SET_ERROR, SET_REDIRECT, SET_PAGE, SET_STATUS } from '../actionTypes';
 
 const INITIAL_STATE = {
     error: null,
     redirect: null,
-    page: null
+    page: null,
+    status: null
 }
 
 export const statusReducer = (state = INITIAL_STATE, action) => {
@@ -22,6 +23,11 @@ export const statusReducer = (state = INITIAL_STATE, action) => {
             return {
                 ...state,
                 page: action.page
+            }
+        case SET_STATUS:
+            return {
+                ...state,
+                status: action.status
             }
         default:
             return state;

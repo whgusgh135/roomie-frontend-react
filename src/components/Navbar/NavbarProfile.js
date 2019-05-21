@@ -1,9 +1,5 @@
 import React from 'react';
-import axios from 'axios';
 import { Link } from 'react-router-dom';
-
-// replace this image with state
-import profileImage from '../../styles/img/profile.jpg';
 
 export class NavbarProfile extends React.Component {
     constructor(props) {

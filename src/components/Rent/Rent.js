@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { RentBox } from './RentBox';
 import RentSearch from './RentSearch';
 import * as actions from '../../redux/actions/rent';
-import { setPage } from '../../redux/actions/status';
+import { setPage, setError } from '../../redux/actions/status';
 
 class Rent extends React.Component {
     constructor(props) {
@@ -15,6 +15,7 @@ class Rent extends React.Component {
     
     
     componentDidMount() {
+        this.props.dispatch(setError(""));
         this.props.dispatch(actions.selectRent(this.state.items));
         this.props.dispatch(setPage("rent"));
     }
@@ -22,9 +23,9 @@ class Rent extends React.Component {
     renderRentBox() {
         if(this.props.rent.rents && this.props.rent.rents.length) {
             return (
-                this.props.rent.rents.map(rent => {
+                this.props.rent.rents.map((rent, index) => {
                     return (
-                        <RentBox rent={rent} />
+                        <RentBox rent={rent} key={index} />
                     )
                 })
             )

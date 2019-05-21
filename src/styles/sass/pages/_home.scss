@@ -1,6 +1,5 @@
 .home {
     background-color: $color-grey-light;
-    padding-top: 6rem;
     margin-left: 25rem;
     
 
@@ -17,10 +16,8 @@
     @include respond(tab-port) {
         margin-left: 15rem;
     }
-    @include respond(phone) {
-        margin-left: 10rem;
-    }
     @include respond(mini) {
+        margin-left: 10rem;
         padding-top: 0;
     }
 }

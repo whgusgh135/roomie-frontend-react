@@ -42,15 +42,51 @@ button {
     .nav-items__logo {
       display: none; } }
 
+.nav-items__right-side {
+  display: flex;
+  flex-direction: row; }
+
+.nav-items__line {
+  align-items: center;
+  display: flex;
+  align-items: center;
+  font-size: 1.4rem;
+  color: #999999;
+  opacity: .5; }
+
+.nav-items__message {
+  text-decoration: none;
+  color: #363636;
+  display: flex;
+  align-items: center;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  cursor: pointer; }
+  .nav-items__message--unread {
+    font-size: .7rem;
+    color: #ffffff;
+    border-radius: 50%;
+    background-color: #E91E63;
+    padding: .2rem;
+    margin-left: .6rem;
+    height: 1.1rem;
+    width: 1.1rem;
+    text-align: center; }
+  .nav-items__message:hover {
+    background-color: #F5F5F5; }
+
 .nav-items__profile {
   text-decoration: none;
   color: #363636;
   display: flex;
   align-items: center;
-  padding-left: 2rem; }
+  padding-left: 1rem;
+  padding-right: 1rem;
+  margin-right: 1rem;
+  height: 3.5rem; }
   .nav-items__profile--img {
-    height: 4.5rem;
-    width: 4.5rem;
+    height: 3rem;
+    width: 3rem;
     border-radius: 50px;
     border: 1px #F5F5F5 solid;
     object-fit: cover; }
@@ -60,10 +96,19 @@ button {
     background-color: #F5F5F5; }
 
 .nav-items__auth {
-  display: flex; }
+  display: flex;
+  padding-left: 2rem;
+  padding-right: 1rem;
+  margin-right: 1rem; }
 
 .nav-items__roomieRegister {
-  padding: 3rem; }
+  padding: 3rem;
+  display: flex;
+  align-items: center;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  margin-right: 1rem;
+  height: 3.5rem; }
   .nav-items__roomieRegister:hover {
     background-color: #F5F5F5; }
 
@@ -184,11 +229,22 @@ button {
     padding: .8rem 1.2rem;
     border-radius: .7rem;
     margin: 1.5rem; }
+  .button--delete {
+    font-size: 1.2rem;
+    padding: .4rem .7em;
+    border-radius: .7rem;
+    margin: 1rem 1.5rem;
+    background-color: #fce5ed;
+    color: #E91E63;
+    border: 1px solid #E91E63;
+    align-self: flex-end; }
+    .button--delete:hover {
+      color: #ffffff; }
   .button--login {
     font-size: 1.4rem;
     padding: .4rem .6rem;
     border-radius: .3rem;
-    margin-right: 1.5rem; }
+    margin-right: 1rem; }
   .button--search {
     border: 1px solid #E91E63;
     border-radius: 50px;
@@ -262,13 +318,13 @@ button {
     opacity: 1; }
 
 .input--login {
-  width: 12rem;
+  width: 11rem;
   margin: .2rem;
   margin-right: 1rem; }
 
 .register-form {
   width: 30rem;
-  margin-top: 8rem;
+  margin-top: 4rem;
   display: flex;
   flex-direction: column; }
   @media only screen and (max-width: 31.25em) {
@@ -277,7 +333,7 @@ button {
       margin-top: 2rem; } }
   .register-form__heading {
     font-size: 2rem;
-    margin-bottom: 4rem;
+    margin-bottom: 1rem;
     text-align: center; }
   .register-form__label {
     font-size: 1.4rem; }
@@ -330,21 +386,72 @@ button {
     background-color: #ffffff;
     z-index: 2000;
     animation: popIn .3s ease-out; }
+    @media only screen and (max-width: 56.25em) {
+      .popup__content {
+        width: 55rem; } }
+    @media only screen and (max-width: 43.75em) {
+      .popup__content {
+        width: 30rem;
+        flex-direction: column; } }
   .popup__left {
     width: 60%;
     display: flex;
     align-items: center;
     background-color: #000000; }
+    @media only screen and (max-width: 43.75em) {
+      .popup__left {
+        width: 100%;
+        height: 10rem;
+        justify-content: center;
+        background-color: #F5F5F5; } }
+    .popup__left--rent {
+      width: 60%;
+      display: flex;
+      align-items: center;
+      background-color: #000000; }
+      @media only screen and (max-width: 43.75em) {
+        .popup__left--rent {
+          width: 100%;
+          height: 15rem;
+          justify-content: center;
+          background-color: #F5F5F5; } }
+  .popup__rent-img {
+    width: 100%;
+    max-height: 100%;
+    object-fit: cover; }
+    .popup__rent-img--next {
+      border-radius: 50%;
+      border: 1px solid #EBEBEB;
+      padding: .5rem 1.1rem;
+      font-size: 2rem;
+      color: #999999;
+      z-index: 3;
+      transform: translate(-4rem, 0);
+      background-color: #ffffff;
+      opacity: .7;
+      cursor: pointer; }
+      @media only screen and (max-width: 43.75em) {
+        .popup__rent-img--next {
+          transform: translate(0, 0); } }
   .popup__roomie-img {
     width: 100%;
     max-height: 100%;
     object-fit: cover; }
+    @media only screen and (max-width: 43.75em) {
+      .popup__roomie-img {
+        width: 8rem;
+        height: 8rem;
+        border-radius: 50%; } }
   .popup__roomie-content {
     width: 40%;
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center; }
+    @media only screen and (max-width: 43.75em) {
+      .popup__roomie-content {
+        width: 100%;
+        margin-top: 3rem; } }
     .popup__roomie-content--name {
       font-size: 2rem;
       font-weight: bold; }
@@ -356,6 +463,18 @@ button {
       font-size: 1.2rem;
       font-style: italic;
       margin: 1rem; }
+  .popup__rent-content {
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: 2rem;
+    font-size: 1.4rem;
+    line-height: 1.6; }
+    @media only screen and (max-width: 43.75em) {
+      .popup__rent-content {
+        width: 100%;
+        margin-top: 3rem; } }
 
 .account-box {
   border: 1px solid #EBEBEB;
@@ -402,14 +521,76 @@ button {
     .account-box {
       width: 95%; } }
 
+.status-box {
+  padding-top: 5rem;
+  margin-left: 25rem; }
+  @media only screen and (max-width: 75em) {
+    .status-box {
+      margin-left: 20rem; } }
+  @media only screen and (max-width: 56.25em) {
+    .status-box {
+      margin-left: 15rem; } }
+  @media only screen and (max-width: 31.25em) {
+    .status-box {
+      padding-top: 0; } }
+  .status-box__container {
+    margin: 3rem;
+    padding: 1.4rem;
+    font-size: 1.6rem;
+    background-color: #DDFFD4;
+    border: 1px solid #52B939;
+    border-radius: .2rem; }
+    .status-box__container--error {
+      background-color: #fce5ed;
+      border: 1px solid #E91E63;
+      border-radius: .2rem; }
+
+.message {
+  margin-left: 28rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border: 1px solid #999999;
+  background-color: #F5F5F5;
+  padding: 1.5rem;
+  margin-right: 3rem;
+  margin-top: 2rem; }
+  @media only screen and (max-width: 75em) {
+    .message {
+      margin-left: 23rem; } }
+  @media only screen and (max-width: 56.25em) {
+    .message {
+      margin-left: 18rem; } }
+  @media only screen and (max-width: 31.25em) {
+    .message {
+      padding-top: 0; } }
+  .message--read {
+    background-color: #ffffff; }
+  .message__content {
+    display: flex; }
+  .message__reply {
+    margin-left: .5rem;
+    cursor: pointer; }
+    .message__reply:hover {
+      background-color: #fce5ed; }
+  .message__delete {
+    margin-left: .5rem;
+    cursor: pointer; }
+    .message__delete:hover {
+      background-color: #fce5ed; }
+  .message__date {
+    margin-left: .5rem;
+    width: 6rem; }
+
 .navbar {
   background-color: white;
   display: flex;
   align-items: center;
   justify-content: space-between;
   position: fixed;
-  height: 6rem;
-  width: 100vw; }
+  height: 5rem;
+  width: 100vw;
+  z-index: 100; }
   @media only screen and (max-width: 43.75em) {
     .navbar {
       justify-content: flex-end; } }
@@ -426,7 +607,7 @@ button {
   position: fixed;
   width: 25rem;
   height: 100vh;
-  margin-top: 6rem; }
+  margin-top: 5rem; }
   @media only screen and (max-width: 75em) {
     .sidebar {
       width: 20rem; } }
@@ -503,7 +684,6 @@ button {
 
 .home {
   background-color: #F5F5F5;
-  padding-top: 6rem;
   margin-left: 25rem;
   display: grid;
   grid-template-columns: [left-space] minmax(1rem, 1fr) [center-start] minmax(10rem, 120rem) [center-end] minmax(1rem, 1fr) [right-space]; }
@@ -513,11 +693,9 @@ button {
   @media only screen and (max-width: 56.25em) {
     .home {
       margin-left: 15rem; } }
-  @media only screen and (max-width: 43.75em) {
-    .home {
-      margin-left: 10rem; } }
   @media only screen and (max-width: 31.25em) {
     .home {
+      margin-left: 10rem;
       padding-top: 0; } }
 
 .register {
@@ -533,9 +711,7 @@ button {
   @media only screen and (max-width: 56.25em) {
     .register {
       margin-left: 15rem; } }
-  @media only screen and (max-width: 43.75em) {
-    .register {
-      margin-left: 10rem; } }
   @media only screen and (max-width: 31.25em) {
     .register {
+      margin-left: 10rem;
       padding-top: 0rem; } }

@@ -2,9 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux'
 import { RoomieBox } from './RoomieBox';
 import RoomieSearch from './RoomieSearch';
-import { RoomieDetail } from './RoomieDetail';
 import * as actions from '../../redux/actions/roomie';
-import { setPage } from '../../redux/actions/status';
+import { setPage, setError } from '../../redux/actions/status';
 
 class Roomie extends React.Component {
     constructor(props) {
@@ -16,6 +15,7 @@ class Roomie extends React.Component {
     
     
     componentDidMount() {
+        this.props.dispatch(setError(""));
         this.props.dispatch(actions.selectRoomies(this.state.items));
         this.props.dispatch(setPage("roomie"));
     }
@@ -23,9 +23,9 @@ class Roomie extends React.Component {
     renderRoomieBox() {
         if(this.props.roomie.roomies.length) {
             return (
-                this.props.roomie.roomies.map(roomie => {
+                this.props.roomie.roomies.map((roomie, index) => {
                     return (
-                        <RoomieBox roomie={roomie} auth={this.props.auth} />
+                        <RoomieBox roomie={roomie} auth={this.props.auth} key={index} />
                     )
                 })
             )

@@ -9,7 +9,7 @@
     position: fixed;
     width: 25rem;
     height: 100vh;
-    margin-top: 6rem;
+    margin-top: 5rem;
 
     @include respond(tab-land) {
         width: 20rem;

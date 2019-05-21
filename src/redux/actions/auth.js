@@ -1,9 +1,10 @@
 import axios from 'axios';
 import * as jwt from 'jsonwebtoken';
 import * as moment from 'moment';
+import * as messageAction from './message';
 
 import { SET_CURRENT_USER } from '../actionTypes';
-import { setError } from './status';
+import { setError, setStatus } from './status';
 
  export const setAuthorizationToken = token => {
     if(token){
@@ -30,6 +31,9 @@ export const authUser = userData => {
                     sessionStorage.setItem("jwtToken", token);
                     dispatch(setCurrentUser(user));
                     dispatch(setError(null));
+                    if(user.roomie._id) {
+                        dispatch(messageAction.selectMessage(user.userId))
+                    }
                     resolve();
                 })
                 .catch(error => {
@@ -58,10 +62,17 @@ export const registerUser = userData => {
                     sessionStorage.setItem("jwtToken", token);
                     dispatch(setCurrentUser(user));
                     dispatch(setError(null));
+                    dispatch(setStatus("Welcome! You have successfully registered."));
+                    setTimeout(function(){
+                        dispatch(setStatus(""));
+                    }, 5000);
                     resolve();
                 })
                 .catch(error => {
                     dispatch(setError(error.response.data.error));
+                    setTimeout(function(){
+                        dispatch(setError(""));
+                    }, 5000);
                     reject();
                 })
         })
@@ -103,6 +114,9 @@ export const checkAuthState = () => {
                         roomie: decodedToken.roomie,
                         rent: decodedToken.rent
                     }));
+                }
+                if(decodedToken.roomie._id) {
+                    dispatch(messageAction.selectMessage(decodedToken.userId))
                 }
             }
         })

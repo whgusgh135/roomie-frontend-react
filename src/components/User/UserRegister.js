@@ -29,7 +29,7 @@ class UserRegister extends React.Component {
         if(this.state.password === this.state.passwordConfirm){
             this.registerUser(this.state);
         } else {
-            this.props.dispatch(setError("Password not same"));
+            this.props.dispatch(setError({"message":"Password not same."}));
         }
     }
 

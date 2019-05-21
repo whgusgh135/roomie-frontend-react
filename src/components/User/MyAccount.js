@@ -13,7 +13,7 @@ class MyAccount extends React.Component {
     renderRoomieDetail() {
         if(this.props.auth.user.roomie.name) {
             return(
-                <div className="account-box__img">
+                <Link to="/roomieedit" className="account-box__img">
                     <p>
                         <b>Name: </b>{this.props.auth.user.roomie.name}
                     </p>
@@ -26,15 +26,16 @@ class MyAccount extends React.Component {
                     <p>
                         <b>Description: </b>{this.props.auth.user.roomie.description}
                     </p>
-                </div>
+                </Link>
             )
         } else {
             return (
-                <div className="account-box__img">
+                <Link to="/roomieregister" className="account-box__img">
                     You have not registered yet.<br></br>
+                    <br></br>
                     Register now to <br></br>
                     become a roomie!
-                </div>
+                </Link>
             )
         }
     }
@@ -69,9 +70,9 @@ class MyAccount extends React.Component {
     renderRentBox() {
         if(this.props.auth.user.rent && this.props.auth.user.rent.length) {
             return (
-                this.props.auth.user.rent.map(rent => {
+                this.props.auth.user.rent.map((rent, index) => {
                     return (
-                        <MyAccountRentBox rent={rent} />
+                        <MyAccountRentBox rent={rent} key={index}/>
                     )
                 })
             )
@@ -80,6 +81,7 @@ class MyAccount extends React.Component {
                 <div className="account-box">
                     <div className="account-box__img">
                         No rent detail.<br></br>
+                        <br></br>
                         Click here to <br></br>
                         list your property!
                     </div>
@@ -89,34 +91,41 @@ class MyAccount extends React.Component {
     }
 
     render() {
-        return (
-            <main className="home">
-                <div className="home-list home-list--space-between">
-                    <h3 className="home-list__title">My Roomie Detail</h3>
-                    {this.renderActionLink()}
-                </div>
-
-                <div className="home-list">
-                    <div className="account-box">
-                        {this.renderRoomieDetail()}
-                        {this.renderFigcaption()}
+        if(this.props.auth.isAuthenticated) {
+            return (
+                <main className="home">
+                    <div className="home-list home-list--space-between">
+                        <h3 className="home-list__title">My Roomie Detail</h3>
+                        {this.renderActionLink()}
                     </div>
-                </div>
-
-                <div className="home-list home-list--space-between">
-                    <h3 className="home-list__title">My Rent Detail</h3>
-                    <Link to="/rentregister" className="home-list__link">Add Rent</Link>
-                </div>
-
-                <div className="home-list">
-                    {this.renderRentBox()}
-                </div>
-
-                <div className="home-list">
-                    <Link to="/userchangepassword" className="button button--primary">Change Password</Link>
-                </div>
-            </main>
-        )
+    
+                    <div className="home-list">
+                        <div className="account-box">
+                            {this.renderRoomieDetail()}
+                            {this.renderFigcaption()}
+                        </div>
+                    </div>
+    
+                    <div className="home-list home-list--space-between">
+                        <h3 className="home-list__title">My Rent Detail</h3>
+                        <Link to="/rentregister" className="home-list__link">Add Rent</Link>
+                    </div>
+    
+                    <div className="home-list">
+                        {this.renderRentBox()}
+                    </div>
+    
+                    <div className="home-list">
+                        <Link to="/userchangepassword" className="button button--primary">Change Password</Link>
+                    </div>
+                </main>
+            )
+        } else {
+            return(
+                <div>hello</div>
+            )
+        }
+        
     }
 }
 

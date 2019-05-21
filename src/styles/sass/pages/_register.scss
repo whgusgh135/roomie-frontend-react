@@ -13,10 +13,8 @@
     @include respond(tab-port) {
         margin-left: 15rem;
     }
-    @include respond(phone) {
-        margin-left: 10rem;
-    }
     @include respond(mini) {
+        margin-left: 10rem;
         padding-top: 0rem;
     }
 }

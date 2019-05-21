@@ -12,10 +12,11 @@ export class Home extends React.Component {
         this.props.dispatch(roomieAction.selectRoomies(3));
         this.props.dispatch(rentAction.selectRent(6));
         this.props.dispatch(statusAction.setPage("home"));
-        if(this.props.status.redirect == "home") {
+        this.props.dispatch(statusAction.setError(""));
+        if(this.props.status.redirect === "home") {
             window.location.reload();
             this.props.dispatch(statusAction.setRedirect(""));
-        } 
+        }
     }
 
     renderRoomieBox() {
@@ -27,9 +28,9 @@ export class Home extends React.Component {
         // ];
         if(this.props.roomie.roomies.length) {
             return ( 
-                this.props.roomie.roomies.map(roomie => {
+                this.props.roomie.roomies.map((roomie, index) => {
                     return (
-                        <RoomieBox roomie={roomie} auth={this.props.auth}/>
+                        <RoomieBox roomie={roomie} auth={this.props.auth} key={index} />
                     )
                 })
             )
@@ -41,14 +42,11 @@ export class Home extends React.Component {
     }
 
     renderFlatBox() {
-        // replace this with api call to get flat data
-        const flats = [{"id": "1"}, {"id": "2"}, {"id": "3"}, {"id": "4"}, {"id": "5"}, {"id": "6"}];
-
         if(this.props.rent.rents.length) {
             return (
-                this.props.rent.rents.map(rent => {
+                this.props.rent.rents.map((rent, index) => {
                     return (
-                        <RentBox rent={rent} />
+                        <RentBox rent={rent} key={index} />
                     )
                 })
             )

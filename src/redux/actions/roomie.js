@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { GET_ROOMIES } from '../actionTypes';
+import { GET_ROOMIES, GET_ROOMIE } from '../actionTypes';
 import { setError, setRedirect } from './status';
 import { setAuthorizationToken, setCurrentUser } from './auth';
 
@@ -10,6 +10,13 @@ const getRoomies = roomies => {
     };
 }
 
+const getRoomie = selectedRoomie => {
+    return {
+        type: GET_ROOMIE,
+        selectedRoomie
+    };
+}
+
 export const selectRoomies = (num) => {
     return dispatch => {
         return new Promise((resolve, reject) => {
@@ -17,6 +24,23 @@ export const selectRoomies = (num) => {
                 .then(res => res.data)
                 .then(roomies => {
                     dispatch(getRoomies(roomies));
+                    resolve();
+                })
+                .catch(error => {
+                    dispatch(setError(error));
+                    reject();
+                })
+        })
+    }
+}
+
+export const selectRoomie = (id) => {
+    return dispatch => {
+        return new Promise((resolve, reject) => {
+            return axios.get(`/api/roomie/${id}`)
+                .then(res => res.data)
+                .then(roomie => {
+                    dispatch(getRoomie(roomie));
                     resolve();
                 })
                 .catch(error => {

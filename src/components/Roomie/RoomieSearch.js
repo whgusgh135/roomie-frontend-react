@@ -54,7 +54,7 @@ class RoomieSearch extends React.Component {
                     onChange={this.handleChange}
                     required
                 >
-                    <option value="" disabled selected>Select the budget</option>
+                    <option value="" disabled defaultValue>Select the budget</option>
                     <option value="100">$100 per week</option>
                     <option value="150">$150 per week</option>
                     <option value="200">$200 per week</option>
@@ -73,13 +73,13 @@ class RoomieSearch extends React.Component {
                 <div className="search-container__setting">
                     <button 
                         onClick={this.handleClick} 
-                        className={this.state.searchBy == "Region" ? "button--search--active" : "button--search"}
+                        className={this.state.searchBy === "Region" ? "button--search--active" : "button--search"}
                         value="Region"
                         >Region
                     </button>
                     <button 
                         onClick={this.handleClick} 
-                        className={this.state.searchBy == "Budget" ? "button--search--active" : "button--search"}
+                        className={this.state.searchBy === "Budget" ? "button--search--active" : "button--search"}
                         value="Budget"
                         >Budget
                     </button>

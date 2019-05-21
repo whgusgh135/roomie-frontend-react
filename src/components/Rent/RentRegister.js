@@ -66,7 +66,7 @@ class RentRegister extends React.Component {
                 email,
                 description } = this.state;
 
-        if(this.props.status.redirect == "home" ||
+        if(this.props.status.redirect === "home" ||
             !this.props.auth.isAuthenticated) {
             return <Redirect to="/home" />
         }
@@ -114,7 +114,7 @@ class RentRegister extends React.Component {
                         onChange={this.handleChange}
                         required
                     >
-                        <option value="1" selected>1</option>
+                        <option value="1" defaultValue>1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
                         <option value="4">4</option>
