@@ -1,13 +1,24 @@
 {
   "name": "roomie",
   "version": "0.1.0",
+  "engines": {
+    "node": "5.6.0",
+    "npm": "8.11.2"
+  },
   "private": true,
   "proxy": "http://localhost:3001",
   "dependencies": {
     "axios": "^0.18.0",
+    "bcrypt": "^3.0.6",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.0",
     "form-data": "^2.3.3",
+    "fs": "0.0.1-security",
     "jsonwebtoken": "^8.4.0",
     "moment": "^2.23.0",
+    "mongoose": "^5.5.10",
+    "multer": "^1.4.1",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
     "react-redux": "^6.0.0",
@@ -17,7 +28,8 @@
     "redux-thunk": "^2.3.0"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "heroku-postbuild": "npm run build",
+    "start": "npm start --prefix server",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
