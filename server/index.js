@@ -1,14 +1,14 @@
 const express = require("express");
 const app = express();
-//const config = require("./config/dev");
+const config = require("./config/dev");
 
 const bodyParser = require("body-parser");
 app.use(bodyParser.json());
 
 const mongoose = require("mongoose");
 mongoose.Promise = Promise;
-//mongoose.connect(config.DB_URI, { useNewUrlParser: true });
-mongoose.connect(process.env.DB_URI, { useNewUrlParser: true });
+mongoose.connect(config.DB_URI, { useNewUrlParser: true });
+//mongoose.connect(process.env.DB_URI, { useNewUrlParser: true });
 
 // const cors = require("cors");
 // app.use(cors());

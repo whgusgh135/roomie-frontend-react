@@ -5,6 +5,7 @@ const RentPerWeek = require("../models/rentPerWeek");
 const ResidentNum = require("../models/residentNum");
 const jwt = require("jsonwebtoken");
 const fs = require("fs");
+const config = require("../config/dev");
 
 // INDEX route - api/rent
 exports.getRents = async function(req, res, next) {
@@ -128,7 +129,7 @@ exports.createRents = async function(req, res, next) {
             rent: user.rent,
             firstName: user.firstName,
             lastName: user.lastName
-        }, process.env.JWT_KEY, {expiresIn: "1h"});
+        }, config.JWT_KEY, {expiresIn: "1h"});
 
         return res.json({
             token,
@@ -178,7 +179,7 @@ exports.updateRent = async function(req, res, next) {
             rent: user.rent,
             firstName: user.firstName,
             lastName: user.lastName
-        }, process.env.JWT_KEY, {expiresIn: "1h"});
+        }, config.JWT_KEY, {expiresIn: "1h"});
 
         return res.json({
             token,
@@ -214,7 +215,7 @@ exports.deleteRent = async function(req, res, next) {
             rent: user.rent,
             firstName: user.firstName,
             lastName: user.lastName
-        }, process.env.JWT_KEY, {expiresIn: "1h"});
+        }, config.JWT_KEY, {expiresIn: "1h"});
 
         return res.json({
             token,

@@ -1,5 +1,6 @@
 const User = require("../models/user");
 const jwt = require("jsonwebtoken");
+const config = require("../config/dev");
 
 // register
 exports.register = async function(req, res, next) {
@@ -20,7 +21,7 @@ exports.register = async function(req, res, next) {
             firstName,
             lastName,
             roomie: {"profileImage": "uploads/avatar-default.png"}
-        }, process.env.JWT_KEY, {expiresIn: "1h"});
+        }, config.JWT_KEY, {expiresIn: "1h"});
 
         return res.json({
             token,
@@ -60,7 +61,7 @@ exports.authenticate = async function(req, res, next) {
                 firstName: user.firstName,
                 lastName: user.lastName,
                 rent: user.rent
-            }, process.env.JWT_KEY, {expiresIn: "1h"});
+            }, config.JWT_KEY, {expiresIn: "1h"});
 
             return res.json({
                 token,
